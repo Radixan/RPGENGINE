@@ -9,6 +9,8 @@ class AbstractScene {
         virtual void            Render          () = 0;
         virtual void            Delete          () = 0;
 
+        virtual                 ~AbstractScene  (){}
+
 };
 
 #endif // __ABSTRACTSCENE_HPP__

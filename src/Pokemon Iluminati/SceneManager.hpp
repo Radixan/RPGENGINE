@@ -13,6 +13,7 @@ class SceneManager {
         void                addScene            (AbstractScene* scene);     // Execute Init before add
         void                removeLast          ();                         // Execute Delete before remove
         void                removeByIndex       (unsigned int index);       // Execute Delete before remove
+        void                removePrevious      ();                         // Execute Delete before remove
         AbstractScene*      getLastScene        ();
         AbstractScene*      getSceneByIndex     (unsigned int index);
         int                 getLastSceneIndex   ();

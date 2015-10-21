@@ -19,6 +19,7 @@ class TestScene : public AbstractScene {
         void            Render          ();
         void            Delete          ();
 
+        ~TestScene                      (){}
 };
 
 #endif // __TESTSCENE_HPP__

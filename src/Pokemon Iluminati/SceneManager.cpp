@@ -24,6 +24,7 @@ int SceneManager::getLastSceneIndex() {
 void SceneManager::removeLast() {
     if (this->m_sceneList.size() > 0) {
         this->m_sceneList.back()->Delete();
+        delete this->m_sceneList.back();
         this->m_sceneList.pop_back();
     }
 }
@@ -31,8 +32,15 @@ void SceneManager::removeLast() {
 void SceneManager::removeByIndex(unsigned int index) {
     if (index <= this->m_sceneList.size() - 1) {
         this->m_sceneList.at(index)->Delete();
+        delete this->m_sceneList.at(index);
         this->m_sceneList.erase(this->m_sceneList.begin()+index);
     }
+}
+
+void SceneManager::removePrevious() {
+    this->m_sceneList.at(this->m_sceneList.size() - 2)->Delete();
+    delete this->m_sceneList.at(this->m_sceneList.size() - 2);
+    this->m_sceneList.erase(this->m_sceneList.end() - 1);
 }
 
 int SceneManager::getSceneIndex(AbstractScene* scene) {

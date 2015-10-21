@@ -18,9 +18,11 @@ void TestScene::Update() {
     sf::Event event;
     while (this->m_game->getWindow().pollEvent(event))
     {
-        if (event.type == sf::Event::Closed)
+        if (event.type == sf::Event::Closed) {
             //this->m_game->getWindow().close();
-            this->m_game->getSceneMng().removeLast();
+            this->m_game->getSceneMng().addScene(new TestScene(this->m_game));
+            this->m_game->getSceneMng().removePrevious();
+        }
     }
 }
 
