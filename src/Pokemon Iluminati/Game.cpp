@@ -31,5 +31,8 @@ void Game::start() {
         if (actualScene != nullptr) actualScene->Render();
 
         this->m_window.display();
+
+        this->m_scenemng.deleteMarked();
+        this->m_scenemng.addMarked();
     }
 }
