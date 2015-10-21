@@ -1,9 +1,12 @@
 
+#include <iostream>
 #include "Game.hpp"
 #include "TestScene.hpp"
 
 Game::Game() {
     this->m_window.create(sf::VideoMode(WIN_X, WIN_Y), WIN_TITLE);
+    std::cout << "Creating Scenes " << std::endl;
+    this->m_scenemng.addScene(new TestScene(this));
     this->m_scenemng.addScene(new TestScene(this));
 }
 

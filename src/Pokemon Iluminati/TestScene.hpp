@@ -8,6 +8,7 @@
 class TestScene : public AbstractScene {
     private:
         Game*           m_game;
+        int             m_num;
 
     public:
 

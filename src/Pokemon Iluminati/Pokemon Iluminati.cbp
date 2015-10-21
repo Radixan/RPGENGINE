@@ -5,7 +5,7 @@
 		<Option title="Pokemon Iluminati" />
 		<Option pch_mode="2" />
 		<Option compiler="gcc" />
-		<Option virtualFolders="Engine\;Engine\SceneManager\;Engine\ResourceManager\;Engine\RenderManager\;Engine\SceneManager\World\;Engine\SceneManager\Batle\;Engine\SceneManager\TestScene\;" />
+		<Option virtualFolders="Engine/;Engine/SceneManager/;Engine/ResourceManager/;Engine/RenderManager/;Engine/SceneManager/World/;Engine/SceneManager/Batle/;Engine/SceneManager/TestScene/;" />
 		<Build>
 			<Target title="Windows">
 				<Option output="bin/Pokemon Iluminati" prefix_auto="1" extension_auto="1" />
@@ -27,11 +27,17 @@
 			</Target>
 			<Target title="Linux">
 				<Option output="Pokemon Iluminati" prefix_auto="1" extension_auto="1" />
-				<Option type="0" />
+				<Option type="1" />
 				<Option compiler="gcc" />
+				<Option use_console_runner="0" />
 				<Compiler>
 					<Add option="-std=c++11" />
 				</Compiler>
+				<Linker>
+					<Add option="-lsfml-graphics" />
+					<Add option="-lsfml-window" />
+					<Add option="-lsfml-system" />
+				</Linker>
 			</Target>
 		</Build>
 		<Compiler>
@@ -58,9 +64,7 @@
 		<Unit filename="TestScene.hpp">
 			<Option virtualFolder="Engine/SceneManager/TestScene/" />
 		</Unit>
-		<Unit filename="main.cpp">
-			<Option target="Windows" />
-		</Unit>
+		<Unit filename="main.cpp" />
 		<Extensions>
 			<code_completion />
 			<envvars />
