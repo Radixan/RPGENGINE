@@ -2,11 +2,13 @@
 #ifndef __RESOURCEMANAGER_HPP__
 #define __RESOURCEMANAGER_HPP__
 
+#include "AbstractSprite.hpp"
+
 class ResourceManager {
 
     public:
         AbstractSprite*     spriteLoader    (const std::string filename);
-                            spriteUnloader  (AbstractSprite* sprite);
+        void                spriteUnloader  (AbstractSprite* sprite);
 
 };
 

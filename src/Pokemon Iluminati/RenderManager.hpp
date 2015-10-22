@@ -3,6 +3,7 @@
 #define __RENDERMANAGER_HPP__
 
 #include "AbstractScreenMap.hpp"
+#include "AbstractSprite.hpp"
 class Game;
 
 class RenderManager {
