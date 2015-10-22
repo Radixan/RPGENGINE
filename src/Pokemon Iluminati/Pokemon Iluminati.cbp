@@ -5,7 +5,7 @@
 		<Option title="Pokemon Iluminati" />
 		<Option pch_mode="2" />
 		<Option compiler="gcc" />
-		<Option virtualFolders="Engine\;Engine\SceneManager\;Engine\ResourceManager\;Engine\RenderManager\;Engine\SceneManager\World\;Engine\SceneManager\Batle\;Engine\SceneManager\TestScene\;Engine\World\;Engine\World\Map\;Engine\RenderManager\AbstractScreenMap\;" />
+		<Option virtualFolders="Engine\;Engine\SceneManager\;Engine\ResourceManager\;Engine\RenderManager\;Engine\SceneManager\World\;Engine\SceneManager\Batle\;Engine\SceneManager\TestScene\;Engine\World\;Engine\World\Map\;Engine\RenderManager\AbstractClasses\;" />
 		<Build>
 			<Target title="Windows">
 				<Option output="bin/Pokemon Iluminati" prefix_auto="1" extension_auto="1" />
@@ -48,10 +48,16 @@
 			<Option virtualFolder="Engine/SceneManager/" />
 		</Unit>
 		<Unit filename="AbstractScreenMap.cpp">
-			<Option virtualFolder="Engine/RenderManager/AbstractScreenMap/" />
+			<Option virtualFolder="Engine/RenderManager/AbstractClasses/" />
 		</Unit>
 		<Unit filename="AbstractScreenMap.hpp">
-			<Option virtualFolder="Engine/RenderManager/AbstractScreenMap/" />
+			<Option virtualFolder="Engine/RenderManager/AbstractClasses/" />
+		</Unit>
+		<Unit filename="AbstractSprite.cpp">
+			<Option virtualFolder="Engine/RenderManager/AbstractClasses/" />
+		</Unit>
+		<Unit filename="AbstractSprite.hpp">
+			<Option virtualFolder="Engine/RenderManager/AbstractClasses/" />
 		</Unit>
 		<Unit filename="Game.cpp">
 			<Option virtualFolder="Engine/" />
@@ -65,8 +71,12 @@
 		<Unit filename="Map.hpp">
 			<Option virtualFolder="Engine/World/Map/" />
 		</Unit>
-		<Unit filename="RenderManager.cpp" />
-		<Unit filename="RenderManager.hpp" />
+		<Unit filename="RenderManager.cpp">
+			<Option virtualFolder="Engine/RenderManager/" />
+		</Unit>
+		<Unit filename="RenderManager.hpp">
+			<Option virtualFolder="Engine/RenderManager/" />
+		</Unit>
 		<Unit filename="SceneManager.cpp">
 			<Option virtualFolder="Engine/SceneManager/" />
 		</Unit>
@@ -91,6 +101,7 @@
 		<Unit filename="WorldScene.hpp">
 			<Option virtualFolder="Engine/SceneManager/World/" />
 		</Unit>
+		<Unit filename="defines.hpp" />
 		<Unit filename="main.cpp" />
 		<Extensions>
 			<code_completion />

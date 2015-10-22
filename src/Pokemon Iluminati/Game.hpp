@@ -3,19 +3,15 @@
 #define __GAME_HPP__
 
 #include <SFML/Graphics.hpp>
+#include "defines.hpp"
 #include "SceneManager.hpp"
-
-#define     WIN_X       1280
-#define     WIN_Y       720
-#define     WIN_TITLE   "Pokémon Iluminati"
-
-#define     WIDTH_TILES     20
-#define     HEIGHT_TILES    12
+#include "RenderManager.hpp"
 
 class Game {
     private:
         sf::RenderWindow        m_window;
         SceneManager            m_scenemng;
+        RenderManager*          m_rendermng;
         bool                    m_running       =       true;
 
     public:

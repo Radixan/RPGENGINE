@@ -4,6 +4,7 @@
 
 #include "AbstractScene.hpp"
 #include "Game.hpp"
+#include "World.hpp"
 
 class WorldScene : public AbstractScene {
     private:

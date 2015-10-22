@@ -2,7 +2,7 @@
 #ifndef __ABSTRACTSCREENMAP_HPP__
 #define __ABSTRACTSCREENMAP_HPP__
 
-#include "Game.hpp"
+#include "defines.hpp"
 
 class AbstractScreenMap {
     private:

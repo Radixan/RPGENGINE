@@ -813,14 +813,16 @@
 	<iostream>
 	"TestScene.hpp"
 
-1445499637 source:c:\users\odnetninii\desktop\rpgengine\src\pokemon iluminati\game.cpp
+1445518213 source:c:\users\odnetninii\desktop\rpgengine\src\pokemon iluminati\game.cpp
 	<iostream>
 	"Game.hpp"
 	"TestScene.hpp"
 
-1445500902 c:\users\odnetninii\desktop\rpgengine\src\pokemon iluminati\game.hpp
+1445518536 c:\users\odnetninii\desktop\rpgengine\src\pokemon iluminati\game.hpp
 	<SFML/Graphics.hpp>
+	"defines.hpp"
 	"SceneManager.hpp"
+	"RenderManager.hpp"
 
 1445417232 c:\users\odnetninii\desktop\rpgengine\sfml-2.3.2\include\sfml\graphics.hpp
 	<SFML/Window.hpp>
@@ -1223,15 +1225,16 @@
 1445500821 source:c:\users\odnetninii\desktop\rpgengine\src\pokemon iluminati\abstractscreenmap.cpp
 	"AbstractScreenMap.hpp"
 
-1445500908 c:\users\odnetninii\desktop\rpgengine\src\pokemon iluminati\abstractscreenmap.hpp
-	"Game.hpp"
+1445518543 c:\users\odnetninii\desktop\rpgengine\src\pokemon iluminati\abstractscreenmap.hpp
+	"defines.hpp"
 
 1445500106 source:c:\users\odnetninii\desktop\rpgengine\src\pokemon iluminati\map.cpp
 
 1445500030 source:c:\users\odnetninii\desktop\rpgengine\src\pokemon iluminati\world.cpp
 	"World.hpp"
 
-1445500887 c:\users\odnetninii\desktop\rpgengine\src\pokemon iluminati\world.hpp
+1445518577 c:\users\odnetninii\desktop\rpgengine\src\pokemon iluminati\world.hpp
+	"defines.hpp"
 	"Map.hpp"
 	"AbstractScreenMap.hpp"
 
@@ -1240,7 +1243,16 @@
 1445499948 source:c:\users\odnetninii\desktop\rpgengine\src\pokemon iluminati\worldscene.cpp
 	"WorldScene.hpp"
 
-1445499896 c:\users\odnetninii\desktop\rpgengine\src\pokemon iluminati\worldscene.hpp
+1445518598 c:\users\odnetninii\desktop\rpgengine\src\pokemon iluminati\worldscene.hpp
 	"AbstractScene.hpp"
 	"Game.hpp"
+	"World.hpp"
+
+1445518454 c:\users\odnetninii\desktop\rpgengine\src\pokemon iluminati\rendermanager.hpp
+	"AbstractScreenMap.hpp"
+
+1445518580 c:\users\odnetninii\desktop\rpgengine\src\pokemon iluminati\defines.hpp
+
+1445518635 source:c:\users\odnetninii\desktop\rpgengine\src\pokemon iluminati\rendermanager.cpp
+	"RenderManager.hpp"
 

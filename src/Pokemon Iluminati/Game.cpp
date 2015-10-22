@@ -5,6 +5,8 @@
 
 Game::Game() {
     this->m_window.create(sf::VideoMode(WIN_X, WIN_Y), WIN_TITLE);
+    this->m_rendermng = new RenderManager(this);
+
     std::cout << "Creating Scenes " << std::endl;
     this->m_scenemng.addScene(new TestScene(this));
 }

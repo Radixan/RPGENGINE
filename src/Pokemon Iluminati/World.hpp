@@ -2,8 +2,7 @@
 #ifndef __WORLD_HPP__
 #define __WORLD_HPP__
 
-#define     MAX_MAPS        16
-
+#include "defines.hpp"
 #include "Map.hpp"
 #include "AbstractScreenMap.hpp"
 
