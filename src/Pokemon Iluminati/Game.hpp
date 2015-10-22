@@ -9,6 +9,9 @@
 #define     WIN_Y       720
 #define     WIN_TITLE   "Pokémon Iluminati"
 
+#define     WIDTH_TILES     20
+#define     HEIGHT_TILES    12
+
 class Game {
     private:
         sf::RenderWindow        m_window;

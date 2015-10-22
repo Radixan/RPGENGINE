@@ -813,12 +813,12 @@
 	<iostream>
 	"TestScene.hpp"
 
-1445420948 source:c:\users\odnetninii\desktop\rpgengine\src\pokemon iluminati\game.cpp
+1445499637 source:c:\users\odnetninii\desktop\rpgengine\src\pokemon iluminati\game.cpp
 	<iostream>
 	"Game.hpp"
 	"TestScene.hpp"
 
-1445417233 c:\users\odnetninii\desktop\rpgengine\src\pokemon iluminati\game.hpp
+1445500902 c:\users\odnetninii\desktop\rpgengine\src\pokemon iluminati\game.hpp
 	<SFML/Graphics.hpp>
 	"SceneManager.hpp"
 
@@ -1200,7 +1200,7 @@
 	<string>
 	<vector>
 
-1445433165 c:\users\odnetninii\desktop\rpgengine\src\pokemon iluminati\scenemanager.hpp
+1445499637 c:\users\odnetninii\desktop\rpgengine\src\pokemon iluminati\scenemanager.hpp
 	<vector>
 	"AbstractScene.hpp"
 
@@ -1213,10 +1213,34 @@
 1445417233 source:c:\users\odnetninii\desktop\rpgengine\src\pokemon iluminati\main.cpp
 	"Game.hpp"
 
-1445433542 source:c:\users\odnetninii\desktop\rpgengine\src\pokemon iluminati\scenemanager.cpp
+1445499637 source:c:\users\odnetninii\desktop\rpgengine\src\pokemon iluminati\scenemanager.cpp
 	"SceneManager.hpp"
 
-1445433276 source:c:\users\odnetninii\desktop\rpgengine\src\pokemon iluminati\testscene.cpp
+1445499637 source:c:\users\odnetninii\desktop\rpgengine\src\pokemon iluminati\testscene.cpp
 	<iostream>
 	"TestScene.hpp"
+
+1445500821 source:c:\users\odnetninii\desktop\rpgengine\src\pokemon iluminati\abstractscreenmap.cpp
+	"AbstractScreenMap.hpp"
+
+1445500908 c:\users\odnetninii\desktop\rpgengine\src\pokemon iluminati\abstractscreenmap.hpp
+	"Game.hpp"
+
+1445500106 source:c:\users\odnetninii\desktop\rpgengine\src\pokemon iluminati\map.cpp
+
+1445500030 source:c:\users\odnetninii\desktop\rpgengine\src\pokemon iluminati\world.cpp
+	"World.hpp"
+
+1445500887 c:\users\odnetninii\desktop\rpgengine\src\pokemon iluminati\world.hpp
+	"Map.hpp"
+	"AbstractScreenMap.hpp"
+
+1445500134 c:\users\odnetninii\desktop\rpgengine\src\pokemon iluminati\map.hpp
+
+1445499948 source:c:\users\odnetninii\desktop\rpgengine\src\pokemon iluminati\worldscene.cpp
+	"WorldScene.hpp"
+
+1445499896 c:\users\odnetninii\desktop\rpgengine\src\pokemon iluminati\worldscene.hpp
+	"AbstractScene.hpp"
+	"Game.hpp"
 

@@ -5,7 +5,7 @@
 		<Option title="Pokemon Iluminati" />
 		<Option pch_mode="2" />
 		<Option compiler="gcc" />
-		<Option virtualFolders="Engine\;Engine\SceneManager\;Engine\ResourceManager\;Engine\RenderManager\;Engine\SceneManager\World\;Engine\SceneManager\Batle\;Engine\SceneManager\TestScene\;" />
+		<Option virtualFolders="Engine\;Engine\SceneManager\;Engine\ResourceManager\;Engine\RenderManager\;Engine\SceneManager\World\;Engine\SceneManager\Batle\;Engine\SceneManager\TestScene\;Engine\World\;Engine\World\Map\;Engine\RenderManager\AbstractScreenMap\;" />
 		<Build>
 			<Target title="Windows">
 				<Option output="bin/Pokemon Iluminati" prefix_auto="1" extension_auto="1" />
@@ -47,12 +47,26 @@
 		<Unit filename="AbstractScene.hpp">
 			<Option virtualFolder="Engine/SceneManager/" />
 		</Unit>
+		<Unit filename="AbstractScreenMap.cpp">
+			<Option virtualFolder="Engine/RenderManager/AbstractScreenMap/" />
+		</Unit>
+		<Unit filename="AbstractScreenMap.hpp">
+			<Option virtualFolder="Engine/RenderManager/AbstractScreenMap/" />
+		</Unit>
 		<Unit filename="Game.cpp">
 			<Option virtualFolder="Engine/" />
 		</Unit>
 		<Unit filename="Game.hpp">
 			<Option virtualFolder="Engine/" />
 		</Unit>
+		<Unit filename="Map.cpp">
+			<Option virtualFolder="Engine/World/Map/" />
+		</Unit>
+		<Unit filename="Map.hpp">
+			<Option virtualFolder="Engine/World/Map/" />
+		</Unit>
+		<Unit filename="RenderManager.cpp" />
+		<Unit filename="RenderManager.hpp" />
 		<Unit filename="SceneManager.cpp">
 			<Option virtualFolder="Engine/SceneManager/" />
 		</Unit>
@@ -64,6 +78,18 @@
 		</Unit>
 		<Unit filename="TestScene.hpp">
 			<Option virtualFolder="Engine/SceneManager/TestScene/" />
+		</Unit>
+		<Unit filename="World.cpp">
+			<Option virtualFolder="Engine/World/" />
+		</Unit>
+		<Unit filename="World.hpp">
+			<Option virtualFolder="Engine/World/" />
+		</Unit>
+		<Unit filename="WorldScene.cpp">
+			<Option virtualFolder="Engine/SceneManager/World/" />
+		</Unit>
+		<Unit filename="WorldScene.hpp">
+			<Option virtualFolder="Engine/SceneManager/World/" />
 		</Unit>
 		<Unit filename="main.cpp" />
 		<Extensions>
