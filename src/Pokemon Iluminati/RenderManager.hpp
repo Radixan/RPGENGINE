@@ -12,8 +12,8 @@ class RenderManager {
     public:
 
                 RenderManager   (Game* game);
-        void    renderMap       (AbstractScreenMap* map);
-        void    renderSprite    ();
+        void    renderMap       (AbstractScreenMap& map);
+        void    renderSprite    (AbstractSprite& sprite);
         void    renderImg       ();
         void    renderText      ();
         void    renderSaticTiled();

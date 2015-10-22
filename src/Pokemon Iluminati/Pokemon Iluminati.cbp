@@ -77,6 +77,12 @@
 		<Unit filename="RenderManager.hpp">
 			<Option virtualFolder="Engine/RenderManager/" />
 		</Unit>
+		<Unit filename="ResourceManager.cpp">
+			<Option virtualFolder="Engine/ResourceManager/" />
+		</Unit>
+		<Unit filename="ResourceManager.hpp">
+			<Option virtualFolder="Engine/ResourceManager/" />
+		</Unit>
 		<Unit filename="SceneManager.cpp">
 			<Option virtualFolder="Engine/SceneManager/" />
 		</Unit>
