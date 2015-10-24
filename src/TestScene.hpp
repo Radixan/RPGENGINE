@@ -3,24 +3,25 @@
 #define __TESTSCENE_HPP__
 
 #include "AbstractScene.hpp"
+#include "AbstractSprite.hpp"
 #include "Game.hpp"
 
 class TestScene : public AbstractScene {
-    private:
-        Game*           m_game;
-        int             m_num;
+  private:
+    Game*           m_game;
+    int             m_num;
+    AbstractSprite  m_sprite;
 
-    public:
+  public:
 
-        TestScene(Game* game);
+    TestScene(Game* game);
 
-        void            Init            ();
-        void            Update          ();
-        void            Render          ();
-        void            Delete          ();
+    void            Init            ();
+    void            Update          ();
+    void            Render          ();
+    void            Delete          ();
 
-        ~TestScene                      (){}
+    ~TestScene                      (){}
 };
 
 #endif // __TESTSCENE_HPP__
-

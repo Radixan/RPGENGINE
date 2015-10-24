@@ -20,7 +20,7 @@ obj/%.o: src/%.cpp
 
 clean:
 	$(RM) $(OBJ_FILES)
-	
+
 # WINDOWS OS
 else
 
@@ -42,5 +42,4 @@ obj/%.o: src/%.cpp
 clean:
 	$(RM) $(OBJ_FILES_DEL)
 
-	
 endif

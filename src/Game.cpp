@@ -5,13 +5,13 @@
 
 Game::Game() {
     this->m_window.create(sf::VideoMode(WIN_X, WIN_Y), WIN_TITLE);
-    this->m_rendermng = new RenderManager(this);
+    this->m_window.setFramerateLimit(60);
 
     std::cout << "Creating Scenes " << std::endl;
     this->m_scenemng.addScene(new TestScene(this));
 }
 
-sf::Window& Game::getWindow() {
+sf::RenderWindow& Game::getWindow() {
     return this->m_window;
 }
 
@@ -37,4 +37,5 @@ void Game::start() {
         this->m_scenemng.deleteMarked();
         this->m_scenemng.addMarked();
     }
+    this->m_scenemng.clear();
 }

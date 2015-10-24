@@ -57,9 +57,18 @@ int SceneManager::getSceneIndex(AbstractScene* scene) {
 }
 
 void SceneManager::clear() {
-    this->m_sceneList.clear();
-    this->m_addList.clear();
-    this->m_removeList.clear();
+  for (int i = 0; i < this->m_sceneList.size(); i++)
+    delete this->m_sceneList.at(i);
+
+  for (int i = 0; i < this->m_removeList.size(); i++)
+    delete this->m_removeList.at(i);
+
+  for (int i = 0; i < this->m_addList.size(); i++)
+    delete this->m_addList.at(i);
+  
+  this->m_sceneList.clear();
+  this->m_addList.clear();
+  this->m_removeList.clear();
 }
 
 void SceneManager::markToRemove (AbstractScene* scene) {

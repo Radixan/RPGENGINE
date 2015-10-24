@@ -5,19 +5,17 @@
 #include <SFML/Graphics.hpp>
 #include "defines.hpp"
 #include "SceneManager.hpp"
-#include "RenderManager.hpp"
 
 class Game {
     private:
         sf::RenderWindow        m_window;
         SceneManager            m_scenemng;
-        RenderManager*          m_rendermng;
         bool                    m_running       =       true;
 
     public:
                                 Game            ();
         void                    start           ();
-        sf::Window&             getWindow       ();
+        sf::RenderWindow&       getWindow       ();
         SceneManager&           getSceneMng     ();
 };
 
