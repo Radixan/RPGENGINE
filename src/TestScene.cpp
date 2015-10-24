@@ -5,10 +5,21 @@ int numscenes = 0;
 int spriteIndex = 0;
 int x = 0, y = 0;
 
+unsigned int ** map;
+
 TestScene::TestScene(Game* game) {
     this->m_game = game;
     this->m_num = numscenes;
     numscenes++;
+    map = new unsigned int*[5];
+    for (int i = 0; i < 5; i++) {
+      map[i] = new unsigned int [5];
+      map[i][0] = 1;
+      map[i][1] = 2;
+      map[i][2] = 1;
+      map[i][3] = 2;
+      map[i][4] = 4;
+    }
 }
 
 
@@ -17,6 +28,10 @@ void TestScene::Init() {
     this->m_sprite.load("Data/Pokemon.png");
     this->m_sprite.setTextureDimensions(2240, 1440);
     this->m_sprite.setDimensions(80,80);
+    this->m_map.load("Data/Tileset.png");
+    this->m_map.setTilesetDimension(1024,448);
+    this->m_map.setTileDimension(64,64);
+    this->m_map.setOffset(-64,-64);
 }
 
 void TestScene::Update() {
@@ -31,22 +46,22 @@ void TestScene::Update() {
     if (event.type == sf::Event::KeyPressed) {
       if (event.key.code == sf::Keyboard::Right) {
         spriteIndex++;
-        x+=80;
+        x++;
         std::cout << "Index: " << spriteIndex << std::endl;
       }
       if (event.key.code == sf::Keyboard::Left) {
         spriteIndex--;
-        x-=80;
+        x--;
         std::cout << "Index: " << spriteIndex << std::endl;
       }
       if (event.key.code == sf::Keyboard::Down) {
         spriteIndex++;
-        y+=80;
+        y++;
         std::cout << "Index: " << spriteIndex << std::endl;
       }
       if (event.key.code == sf::Keyboard::Up) {
         spriteIndex--;
-        y-=80;
+        y--;
         std::cout << "Index: " << spriteIndex << std::endl;
       }
     }
@@ -56,12 +71,17 @@ void TestScene::Update() {
   this->m_sprite.setPosition(x,y);
   this->m_sprite.setIndex(spriteIndex);
   this->m_sprite.update();
+  this->m_map.setOffset(x, y);
 }
 
 void TestScene::Render() {
+  this->m_map.render(this->m_game, map, 5, 5);
   this->m_sprite.render(this->m_game);
 }
 
 void TestScene::Delete() {
     std::cout << "Destruida la escena numero: " << this->m_num << std::endl;
+    for (int i = 0; i < 5; i++)
+      delete[] map[i];
+    delete[] map;
 }

@@ -4,13 +4,15 @@
 
 #include "AbstractScene.hpp"
 #include "AbstractSprite.hpp"
+#include "AbstractVisibleMap.hpp"
 #include "Game.hpp"
 
 class TestScene : public AbstractScene {
   private:
-    Game*           m_game;
-    int             m_num;
-    AbstractSprite  m_sprite;
+    Game*               m_game;
+    int                 m_num;
+    AbstractSprite      m_sprite;
+    AbstractVisibleMap  m_map;
 
   public:
 
