@@ -20,6 +20,7 @@ class AbstractSprite {
 
     public:
         void        load                  (const std::string filename);
+        void        loadTexture           (sf::Texture& texture);
         void        render                (Game* game);
         void        setPosition           (int x, int y);
         void        setDimensions         (unsigned int wide, unsigned int hight);

@@ -7,6 +7,11 @@ void AbstractSprite::load (const std::string filename) {
     this->m_sprite.setTexture(this->m_texture);
 }
 
+void AbstractSprite::loadTexture (sf::Texture& texture) {
+    this->m_texture = texture;
+    this->m_sprite.setTexture(this->m_texture);
+}
+
 void AbstractSprite::render (Game* game) {
   game->getWindow().draw(this->m_sprite);
 }

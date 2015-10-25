@@ -6,6 +6,7 @@
 #include "AbstractSprite.hpp"
 #include "AbstractVisibleMap.hpp"
 #include "Game.hpp"
+#include "Tileset.hpp"
 
 class TestScene : public AbstractScene {
   private:
@@ -13,6 +14,7 @@ class TestScene : public AbstractScene {
     int                 m_num;
     AbstractSprite      m_sprite;
     AbstractVisibleMap  m_map;
+    Tileset             m_tileset;
 
   public:
 

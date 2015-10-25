@@ -5,6 +5,7 @@
 #include <SFML/Graphics.hpp>
 
 #include "AbstractSprite.hpp"
+#include "Tileset.hpp"
 
 class AbstractVisibleMap {
 
@@ -18,6 +19,7 @@ class AbstractVisibleMap {
   public:
     AbstractVisibleMap              ();
     void        load                (std::string filename);
+    void        loadTileset         (Tileset& tileset);
     void        setTileDimension    (unsigned int wide, unsigned int hight);
     void        setTilesetDimension (unsigned int wide, unsigned int hight);
     void        setOffset           (int x, int y);

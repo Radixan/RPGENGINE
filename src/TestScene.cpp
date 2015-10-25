@@ -32,6 +32,13 @@ void TestScene::Init() {
     this->m_map.setTilesetDimension(1024,448);
     this->m_map.setTileDimension(64,64);
     this->m_map.setOffset(-64,-64);
+    this->m_tileset.load("Data/Tileset.til");
+    std::cout << std::endl 
+              << "ID: " << this->m_tileset.getID()
+              << " tileWide: " << this->m_tileset.getTileWide()
+              << " tilehight: " << this->m_tileset.getTileHight()
+              << " wide: " << this->m_tileset.getWide()
+              << " hight: " << this->m_tileset.getHight() << std::endl;
 }
 
 void TestScene::Update() {
