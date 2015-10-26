@@ -18,14 +18,14 @@ class AbstractVisibleMap {
 
   public:
     AbstractVisibleMap              ();
-    void        load                (std::string filename);
     void        loadTileset         (Tileset& tileset);
     void        setTileDimension    (unsigned int wide, unsigned int hight);
     void        setTilesetDimension (unsigned int wide, unsigned int hight);
     void        setOffset           (int x, int y);
-
-    // Render 1 tile out of the map (TOP-LEFT)
     void        render              (Game* game, unsigned int **map, unsigned int width, unsigned int hight );
+
+    // Deprecated
+    void        load                (std::string filename);
 };
 
 #endif //  __ABSTRACTVISIBLEMAP_HPP__

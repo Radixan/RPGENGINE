@@ -1,4 +1,3 @@
-#CODEBLOCKS MINGW
 OS=$(shell uname)
 
 # LINUX OS

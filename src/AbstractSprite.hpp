@@ -2,7 +2,7 @@
 #ifndef __ABSTRACTSPRITE_HPP__
 #define __ABSTRACTSPRITE_HPP__
 
-#include "SFML/Graphics.hpp"
+#include <SFML/Graphics.hpp>
 #include "Game.hpp"
 
 class AbstractSprite {

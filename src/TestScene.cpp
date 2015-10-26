@@ -28,12 +28,10 @@ void TestScene::Init() {
     this->m_sprite.load("Data/Pokemon.png");
     this->m_sprite.setTextureDimensions(2240, 1440);
     this->m_sprite.setDimensions(80,80);
-    this->m_map.load("Data/Tileset.png");
-    this->m_map.setTilesetDimension(1024,448);
-    this->m_map.setTileDimension(64,64);
-    this->m_map.setOffset(-64,-64);
     this->m_tileset.load("Data/Tileset.til");
-    std::cout << std::endl 
+    this->m_map.loadTileset(this->m_tileset);
+
+    std::cout << std::endl
               << "ID: " << this->m_tileset.getID()
               << " tileWide: " << this->m_tileset.getTileWide()
               << " tilehight: " << this->m_tileset.getTileHight()
@@ -85,7 +83,7 @@ void TestScene::Render() {
   this->m_map.render(this->m_game, map, 5, 5);
   this->m_sprite.render(this->m_game);
 }
-
+// FIX: Delete no execute
 void TestScene::Delete() {
     std::cout << "Destruida la escena numero: " << this->m_num << std::endl;
     for (int i = 0; i < 5; i++)

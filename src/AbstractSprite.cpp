@@ -1,6 +1,5 @@
 
 #include "AbstractSprite.hpp"
-#include <iostream>
 
 void AbstractSprite::load (const std::string filename) {
     this->m_texture.loadFromFile(filename);

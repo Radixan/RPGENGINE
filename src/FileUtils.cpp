@@ -14,3 +14,8 @@ char FileUtils::readByte (std::ifstream& file) {
   if (file.eof()) return 0x00;
   return file.get();
 }
+
+uint8_t FileUtils::readByteAsUINT8 (std::ifstream& file) {
+  if (file.eof()) return 0x00;
+  return file.get();
+}

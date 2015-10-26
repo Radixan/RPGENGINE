@@ -14,6 +14,8 @@ void AbstractVisibleMap::load(std::string filename) {
 
 void AbstractVisibleMap::loadTileset (Tileset& tileset) {
   this->m_pointer.loadTexture(tileset.getTexture());
+  this->setTileDimension(tileset.getTileWide(), tileset.getTileHight());
+  this->setTilesetDimension(tileset.getWide(), tileset.getHight());  
 }
 
 void AbstractVisibleMap::setTileDimension(unsigned int wide, unsigned int hight) {
