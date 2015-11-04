@@ -6,6 +6,7 @@
 
 #include "AbstractSprite.hpp"
 #include "Tileset.hpp"
+#include "defines.hpp"
 
 class AbstractVisibleMap {
 
@@ -15,6 +16,7 @@ class AbstractVisibleMap {
     unsigned int        m_hight;
     int                 m_offsetX;
     int                 m_offsetY;
+    unsigned int        m_map[WIDTH_TILES][HEIGHT_TILES];
 
   public:
     AbstractVisibleMap              ();
@@ -23,6 +25,9 @@ class AbstractVisibleMap {
     void        setTilesetDimension (unsigned int wide, unsigned int hight);
     void        setOffset           (int x, int y);
     void        render              (Game* game, unsigned int **map, unsigned int width, unsigned int hight );
+
+    unsigned int getTile            (int x, int y);
+    void         setTile            (int x, int y, unsigned int tile);
 
     // Deprecated
     void        load                (std::string filename);
