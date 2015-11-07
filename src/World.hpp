@@ -3,13 +3,12 @@
 #define __WORLD_HPP__
 
 #include "defines.hpp"
-#include "Map.hpp"
-#include "AbstractScreenMap.hpp"
+//#include "Map.hpp"
 
 class World {
     private:
-        Map                     m_maps[MAX_MAPS];
-        AbstractScreenMap       m_screenMap;
+        //Map                     m_maps[MAX_MAPS];
+
 
     public:
 

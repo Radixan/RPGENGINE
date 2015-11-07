@@ -24,7 +24,7 @@ class AbstractVisibleMap {
     void        setTileDimension    (unsigned int wide, unsigned int hight);
     void        setTilesetDimension (unsigned int wide, unsigned int hight);
     void        setOffset           (int x, int y);
-    void        render              (Game* game, unsigned int **map, unsigned int width, unsigned int hight );
+    void        render              (Game* game, unsigned int width, unsigned int hight );
 
     unsigned int getTile            (int x, int y);
     void         setTile            (int x, int y, unsigned int tile);

@@ -14,6 +14,7 @@ class TestScene : public AbstractScene {
     int                 m_num;
     AbstractSprite      m_sprite;
     AbstractVisibleMap  m_map;
+    AbstractVisibleMap  m_mapBack;
     Tileset             m_tileset;
 
   public:
@@ -25,7 +26,7 @@ class TestScene : public AbstractScene {
     void            Render          ();
     void            Delete          ();
 
-    ~TestScene                      (){}
+    ~TestScene                      ();
 };
 
 #endif // __TESTSCENE_HPP__

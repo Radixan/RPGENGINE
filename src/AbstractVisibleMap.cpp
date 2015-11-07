@@ -32,7 +32,7 @@ void AbstractVisibleMap::setTilesetDimension (unsigned int wide, unsigned int hi
   this->m_pointer.setTextureDimensions(wide, hight);
 }
 
-void AbstractVisibleMap::render (Game *game, unsigned int **map, unsigned int width, unsigned int hight) {
+void AbstractVisibleMap::render (Game *game, unsigned int width, unsigned int hight) {
   for (unsigned int i = 0; i < hight; i++) {
     for (unsigned int j = 0; j < width; j++) {
       this->m_pointer.setPosition(j*this->m_wide + this->m_offsetX,
@@ -44,13 +44,13 @@ void AbstractVisibleMap::render (Game *game, unsigned int **map, unsigned int wi
   }
 }
 
-void setTile (int x, int y, unsigned int tile) {
+void AbstractVisibleMap::setTile (int x, int y, unsigned int tile) {
   if (x < 0 || x >= WIDTH_TILES) return;
   if (y < 0 || y >= HEIGHT_TILES) return;
   this->m_map[x][y] = tile;
 }
 
-unsigned int getTile (int x, int y) {
+unsigned int AbstractVisibleMap::getTile (int x, int y) {
   if (x < 0 || x >= WIDTH_TILES) return 0;
   if (y < 0 || y >= HEIGHT_TILES) return 0;
   return this->m_map[x][y];

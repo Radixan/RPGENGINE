@@ -4,6 +4,9 @@
 void AbstractSprite::load (const std::string filename) {
     this->m_texture.loadFromFile(filename);
     this->m_sprite.setTexture(this->m_texture);
+    this->m_speed = 0;
+    this->m_speed_ = 0;
+    this->m_frames.clear();
 }
 
 void AbstractSprite::loadTexture (sf::Texture& texture) {
@@ -31,6 +34,16 @@ void AbstractSprite::setTextureDimensions (unsigned int wide, unsigned int hight
 }
 
 void AbstractSprite::update () {
+  if (this->m_frames.size() > 0) {
+    if (this->m_speed != 0) {
+      this->m_speed_++;
+      if (this->m_speed_ >= this->m_speed) {
+        this->m_speed_ = 0;
+        this->m_actualFrame = (this->m_actualFrame++) % this->m_frames.size();
+        this->setIndex(this->m_actualFrame);
+      }
+    }
+  }
   this->m_sprite.setPosition(sf::Vector2f(m_x,m_y));
   this->m_sprite.setTextureRect(sf::IntRect(
                                 this->m_offsetX, this->m_offsetY,
@@ -45,4 +58,15 @@ void AbstractSprite::setIndex (unsigned int index) {
 void AbstractSprite::setPosition (int x, int y) {
   this->m_x = x;
   this->m_y = y;
+}
+
+void AbstractSprite::setSpeed (unsigned int speed) {
+  this->m_speed = speed;
+}
+
+void AbstractSprite::setFrames (std::vector<int> frames) {
+  this->m_actualFrame = 0;
+  for (int i = 0; i < frames.size(); i++) {
+    this->m_frames.push_back(frames.at(i));
+  }
 }

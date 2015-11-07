@@ -18,6 +18,11 @@ class AbstractSprite {
         int                       m_x;
         int                       m_y;
 
+        std::vector<unsigned int>          m_frames;
+        unsigned int              m_actualFrame;
+        unsigned int              m_speed;
+        unsigned int              m_speed_;
+
     public:
         void        load                  (const std::string filename);
         void        loadTexture           (sf::Texture& texture);
@@ -30,6 +35,11 @@ class AbstractSprite {
         // Only if all parameters are set
         void        setIndex              (unsigned int index);
         void        setOffsets            (unsigned int x, unsigned int y);
+
+        // Animated
+        void        setSpeed              (unsigned int speed);
+        void        setFrames             (std::vector<unsigned int> frames);
+
 };
 
 #endif // __ABSTRACTSPRITE_HPP__

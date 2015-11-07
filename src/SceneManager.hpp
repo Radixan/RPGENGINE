@@ -17,18 +17,18 @@ class SceneManager {
         /*
             Use This (Loop controlled)
         */
-        void                markToRemove        (AbstractScene* scene);     // Execute Delete before remove
+        void                markToRemove        (AbstractScene* scene);
         void                deleteMarked        ();
-        void                markToAdd           (AbstractScene* scene);     // Execute Init before add
+        void                markToAdd           (AbstractScene* scene);
         void                addMarked           ();
 
         /*
             No Control Adds and Delete
         */
-        void                addScene            (AbstractScene* scene);     // Execute Init before add
-        void                removeLast          ();                         // Execute Delete before remove
-        void                removeByIndex       (unsigned int index);       // Execute Delete before remove
-        void                removePrevious      ();                         // Execute Delete before remove
+        void                addScene            (AbstractScene* scene);
+        void                removeLast          ();
+        void                removeByIndex       (unsigned int index);
+        void                removePrevious      ();                   
         AbstractScene*      getLastScene        ();
         AbstractScene*      getSceneByIndex     (unsigned int index);
         int                 getLastSceneIndex   ();

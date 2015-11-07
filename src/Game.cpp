@@ -2,6 +2,7 @@
 #include <iostream>
 #include "Game.hpp"
 #include "TestScene.hpp"
+#include "BattleScene.hpp"
 
 Game::Game() {
     this->m_window.create(sf::VideoMode(WIN_X, WIN_Y), WIN_TITLE);
@@ -9,6 +10,7 @@ Game::Game() {
 
     std::cout << "Creating Scenes " << std::endl;
     this->m_scenemng.addScene(new TestScene(this));
+    this->m_scenemng.addScene(new BattleScene(this));
 }
 
 sf::RenderWindow& Game::getWindow() {
