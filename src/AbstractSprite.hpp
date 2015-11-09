@@ -32,6 +32,9 @@ class AbstractSprite {
         void        setTextureDimensions  (unsigned int wide, unsigned int hight);
         void        update                ();
 
+        int         getX                  ();
+        int         getY                  ();
+
         // Only if all parameters are set
         void        setIndex              (unsigned int index);
         void        setOffsets            (unsigned int x, unsigned int y);
@@ -39,7 +42,7 @@ class AbstractSprite {
         // Animated
         void        setSpeed              (unsigned int speed);
         void        setFrames             (std::vector<unsigned int> frames);
-
+        void        setActualFrame        (unsigned int frame);
 };
 
 #endif // __ABSTRACTSPRITE_HPP__

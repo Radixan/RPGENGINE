@@ -8,13 +8,14 @@
 
 class Trainer {
   private:
-    AbstractSprite      m_battleSprite;
-    AbstractSprite      m_sprite;
+    AbstractSprite*      m_battleSprite;
+    AbstractSprite*      m_sprite;
     Pokemon             m_team[6];
     Inventory           m_inventory;
 
   public:
-
-}
+    Trainer(AbstractSprite* battleSprite);
+    AbstractSprite*   getBattleSprite     ();
+};
 
 #endif // __TRAINER_HPP__

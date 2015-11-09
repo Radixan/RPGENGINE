@@ -39,7 +39,7 @@ void AbstractSprite::update () {
       this->m_speed_++;
       if (this->m_speed_ >= this->m_speed) {
         this->m_speed_ = 0;
-        this->m_actualFrame = (this->m_actualFrame++) % this->m_frames.size();
+        this->m_actualFrame = (++this->m_actualFrame) % this->m_frames.size();
         this->setIndex(this->m_actualFrame);
       }
     }
@@ -60,11 +60,23 @@ void AbstractSprite::setPosition (int x, int y) {
   this->m_y = y;
 }
 
+int AbstractSprite::getX() {
+  return this->m_x;
+}
+
+int AbstractSprite::getY() {
+  return this->m_y;
+}
+
+void AbstractSprite::setActualFrame(unsigned int frame) {
+  this->m_actualFrame = frame;
+}
+
 void AbstractSprite::setSpeed (unsigned int speed) {
   this->m_speed = speed;
 }
 
-void AbstractSprite::setFrames (std::vector<int> frames) {
+void AbstractSprite::setFrames (std::vector<unsigned int> frames) {
   this->m_actualFrame = 0;
   for (int i = 0; i < frames.size(); i++) {
     this->m_frames.push_back(frames.at(i));

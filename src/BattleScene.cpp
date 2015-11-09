@@ -24,5 +24,5 @@ void BattleScene::Render () {
 }
 
 BattleScene::~BattleScene () {
-  delete this->m_battle;
+
 }
