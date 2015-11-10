@@ -12,11 +12,12 @@ void BattleScene::Update () {
   while (this->m_game->getWindow().pollEvent(event))
   {
     if (event.type == sf::Event::Closed) {
-      this->m_game->getSceneMng().markToRemove(this);
+      this->m_game->getWindow().close();
+      //this->m_game->getSceneMng().markToRemove(this);
       //this->m_game->getSceneMng().markToAdd(new TestScene(this->m_game));
     }
   }
-  this->m_battle->update();
+  this->m_battle->update(this->m_game->getFrameTime());
 }
 
 void BattleScene::Render () {

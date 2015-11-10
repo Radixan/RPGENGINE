@@ -38,7 +38,7 @@ void AbstractVisibleMap::render (Game *game, unsigned int width, unsigned int hi
       this->m_pointer.setPosition(j*this->m_wide + this->m_offsetX,
                                   i*this->m_hight + this->m_offsetY);
       this->m_pointer.setIndex(this->m_map[j][i]);
-      this->m_pointer.update();
+      this->m_pointer.update(game->getFrameTime());
       this->m_pointer.render(game);
     }
   }

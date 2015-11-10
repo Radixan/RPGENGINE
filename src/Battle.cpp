@@ -8,9 +8,9 @@ Battle::Battle (Trainer* player, Trainer* enemy) {
 }
 
 
-void Battle::update() {
+void Battle::update(sf::Time deltaTime) {
   if (this->m_state == 0) {
-    this->startingBattle();
+    this->startingBattle(deltaTime);
   }
 }
 
@@ -20,15 +20,16 @@ void Battle::render(Game* game) {
 
 int u = 0;
 
-void Battle::startingBattle () {
-  this->m_player->getBattleSprite()->update();
+void Battle::startingBattle (sf::Time deltaTime) {
   int _x = this->m_player->getBattleSprite()->getX();
   this->m_player->getBattleSprite()->setPosition(
-    _x - 3, this->m_player->getBattleSprite()->getY());
+    _x - (15)*deltaTime.asSeconds(), this->m_player->getBattleSprite()->getY());
   u++;
-  if (u == 40) {
+  if (u == 60) {
     u=0;
     this->m_player->getBattleSprite()->setActualFrame(0);
-    this->m_player->getBattleSprite()->setPosition(50,50);
+    this->m_player->getBattleSprite()->setPosition(100,100);
+    this->m_player->getBattleSprite()->stopAnimation();
   }
+  this->m_player->getBattleSprite()->update(deltaTime);
 }

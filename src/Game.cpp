@@ -13,20 +13,39 @@ Game::Game() {
 
     AbstractSprite* player = new AbstractSprite();
     player->load("Data/Silver.png");
-    player->setPosition(50,50);
+    player->setPosition(100,100);
     player->setDimensions(80,80);
-    player->setTextureDimensions(640,80);
-    std::vector<unsigned int> frames;
-    frames.push_back(0);
-    frames.push_back(1);
-    frames.push_back(2);
-    frames.push_back(3);
-    frames.push_back(4);
-    frames.push_back(5);
-    frames.push_back(6);
-    frames.push_back(7);
+    player->setTextureDimensions(400,80);
+    std::vector<Animation> frames;
+    Animation a;
+    a.frame = 0;
+    a.time = sf::seconds(0.10); // Min: 0.000001
+    frames.push_back(a);
+    a.frame = 1;
+    //a.time = sf::seconds(0.2);
+    frames.push_back(a);
+    a.frame = 2;
+    //a.time = sf::seconds(0.2);
+    frames.push_back(a);
+    a.frame = 3;
+    //a.time = sf::seconds(0.01);
+    frames.push_back(a);
+    a.frame = 4;
+    a.time = sf::seconds(1.2);
+    frames.push_back(a);
+    player->playAnimation();
+  /*  a.frame = 5;
+    //a.time = sf::seconds(0.30);
+    frames.push_back(a);
+    a.frame = 6;
+    //a.time = sf::seconds(0.15);
+    frames.push_back(a);
+    a.frame = 7;
+    //a.time = sf::seconds(2);
+    frames.push_back(a);*/
+
     player->setFrames(frames);
-    player->setSpeed(5);
+    player->setSpeed(sf::seconds(0.15));
 
     AbstractSprite* enemy = new AbstractSprite();
     this->m_scenemng.addScene(new BattleScene(this, new Battle(new Trainer(player), new Trainer(enemy))));
@@ -47,6 +66,10 @@ void Game::start() {
     while(this->m_running && this->m_window.isOpen()) {
 
         actualScene = this->m_scenemng.getLastScene();
+
+        // Reset frame clock
+        this->m_frameTime = this->m_frameClock.restart();
+
         if (actualScene != nullptr) actualScene->Update();
 
         this->m_window.clear();
@@ -59,4 +82,8 @@ void Game::start() {
         this->m_scenemng.addMarked();
     }
     this->m_scenemng.clear();
+}
+
+sf::Time Game::getFrameTime () {
+  return this->m_frameTime;
 }

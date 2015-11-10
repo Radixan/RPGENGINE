@@ -201,7 +201,7 @@ void TestScene::Update() {
   //this->m_sprite.setIndex(spriteIndex);
   this->m_sprite.setPosition(x,y);
   this->m_sprite.setIndex(spriteIndex);
-  this->m_sprite.update();
+  this->m_sprite.update(this->m_game->getFrameTime());
   this->m_map.setOffset(x, y);
   this->m_mapBack.setOffset(x,y);
 }

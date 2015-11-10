@@ -12,12 +12,12 @@ class Battle {
     Trainer*       m_enemy;
     unsigned int   m_state;
 
-    void      startingBattle ();
+    void      startingBattle (sf::Time deltaTime);
 
   public:
 
     Battle (Trainer* player, Trainer* enemy);
-    void      update      ();
+    void      update      (sf::Time deltaTime);
     void      render      (Game* game);
 
 };

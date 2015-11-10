@@ -4,6 +4,7 @@
 
 #include <SFML/Graphics.hpp>
 #include "Game.hpp"
+#include "Animation.hpp"
 
 class AbstractSprite {
     private:
@@ -18,10 +19,11 @@ class AbstractSprite {
         int                       m_x;
         int                       m_y;
 
-        std::vector<unsigned int>          m_frames;
+        std::vector<Animation>    m_frames;
         unsigned int              m_actualFrame;
-        unsigned int              m_speed;
-        unsigned int              m_speed_;
+        sf::Time                  m_time;
+        sf::Time                  m_currentTime;
+        bool                      m_playing;
 
     public:
         void        load                  (const std::string filename);
@@ -30,7 +32,7 @@ class AbstractSprite {
         void        setPosition           (int x, int y);
         void        setDimensions         (unsigned int wide, unsigned int hight);
         void        setTextureDimensions  (unsigned int wide, unsigned int hight);
-        void        update                ();
+        void        update                (sf::Time deltaTime);
 
         int         getX                  ();
         int         getY                  ();
@@ -40,9 +42,12 @@ class AbstractSprite {
         void        setOffsets            (unsigned int x, unsigned int y);
 
         // Animated
-        void        setSpeed              (unsigned int speed);
-        void        setFrames             (std::vector<unsigned int> frames);
+        void        setSpeed              (sf::Time frameTime);
+        void        setFrames             (std::vector<Animation> frames);
         void        setActualFrame        (unsigned int frame);
+
+        void        playAnimation         ();
+        void        stopAnimation         ();
 };
 
 #endif // __ABSTRACTSPRITE_HPP__
