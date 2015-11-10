@@ -1,0 +1,62 @@
+TilesetmetaData: {
+  comment:    "Tileset Metadata"
+  extension:  ".til"
+
+  Data: {
+    uint16_t    id
+    string      filename
+    byte        ff            =       0xFF
+    uint16_t    tileW
+    uint16_t    tileH
+    uint16_t    tilesetW
+    uint16_t    tilesetH
+  }
+}
+
+PlayerMetaData: {
+  comment:     "Player Metadata"
+  extension:   ".pl"
+
+  Data: {
+    string      inGameMetaDataSpriteFilename
+    byte        ff            =       0xFF
+    string      inBattleMetaDataSpriteFilename
+    byte        ff            =       0xFF
+  }
+}
+
+SpriteMetaData: {
+  comment:    "Sprite Metadata"
+  extension:  ".spr"
+
+  Data: {
+    string      filename
+    byte        stringFinal + animated    =  0xFE / 0xFF (noAnim/Anim)
+    uint16_t    spriteW
+    uint16_t    spriteH
+    uint16_t    spriteSheetW
+    uint16_t    spriteSheetH
+    int         animationFrames
+    Animation: {
+      uint        frame
+      float       seconds (nextFrame time)
+    } * animationFrames
+  }
+}
+
+MapMetaData: {
+  comment:     "Map Metadata"
+  extension:   ".mp"
+
+  Data: {
+    uint16_t    id
+    uint16_t    rightMapId
+    uint16_t    lefttMapId
+    uint16_t    upMapId
+    uint16_t    downMapId
+    string      filenameTilesetMetaData
+    byte        ff            =       0xFF
+    string      filenameMap
+    byte        ff            =       0xFF
+  }
+}

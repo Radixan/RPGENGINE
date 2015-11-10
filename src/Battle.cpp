@@ -23,13 +23,14 @@ int u = 0;
 void Battle::startingBattle (sf::Time deltaTime) {
   int _x = this->m_player->getBattleSprite()->getX();
   this->m_player->getBattleSprite()->setPosition(
-    _x - (15)*deltaTime.asSeconds(), this->m_player->getBattleSprite()->getY());
+    _x - (410)*deltaTime.asSeconds(), this->m_player->getBattleSprite()->getY());
   u++;
-  if (u == 60) {
+  if (u == 65) {
     u=0;
     this->m_player->getBattleSprite()->setActualFrame(0);
-    this->m_player->getBattleSprite()->setPosition(100,100);
-    this->m_player->getBattleSprite()->stopAnimation();
+    this->m_player->getBattleSprite()->setPosition(100,210);
+    //this->m_player->getBattleSprite()->setPosition(100,210);
+    //this->m_player->getBattleSprite()->stopAnimation();
   }
   this->m_player->getBattleSprite()->update(deltaTime);
 }

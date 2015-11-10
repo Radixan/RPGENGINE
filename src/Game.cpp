@@ -13,16 +13,16 @@ Game::Game() {
 
     AbstractSprite* player = new AbstractSprite();
     player->load("Data/Silver.png");
-    player->setPosition(100,100);
-    player->setDimensions(80,80);
-    player->setTextureDimensions(400,80);
+    player->setPosition(100,210);
+    player->setDimensions(80*4,80*4);
+    player->setTextureDimensions(400*4,80*4);
     std::vector<Animation> frames;
     Animation a;
     a.frame = 0;
-    a.time = sf::seconds(0.10); // Min: 0.000001
+    a.time = sf::seconds(0.5); // Min: 0.000001
     frames.push_back(a);
     a.frame = 1;
-    //a.time = sf::seconds(0.2);
+    a.time = sf::seconds(0.2);
     frames.push_back(a);
     a.frame = 2;
     //a.time = sf::seconds(0.2);
@@ -45,6 +45,7 @@ Game::Game() {
     frames.push_back(a);*/
 
     player->setFrames(frames);
+    player->setActualFrame(0);
     player->setSpeed(sf::seconds(0.15));
 
     AbstractSprite* enemy = new AbstractSprite();
