@@ -10,7 +10,7 @@ Game::Game() {
 
     std::cout << "Creating Scenes " << std::endl;
     this->m_scenemng.addScene(new TestScene(this));
-
+/*
     AbstractSprite* player = new AbstractSprite();
     player->load("Data/Silver.png");
     player->setPosition(100,210);
@@ -34,7 +34,7 @@ Game::Game() {
     a.time = sf::seconds(1.2);
     frames.push_back(a);
     player->playAnimation();
-  /*  a.frame = 5;
+    a.frame = 5;
     //a.time = sf::seconds(0.30);
     frames.push_back(a);
     a.frame = 6;
@@ -42,14 +42,14 @@ Game::Game() {
     frames.push_back(a);
     a.frame = 7;
     //a.time = sf::seconds(2);
-    frames.push_back(a);*/
+    frames.push_back(a);
 
     player->setFrames(frames);
     player->setActualFrame(0);
     player->setSpeed(sf::seconds(0.15));
 
     AbstractSprite* enemy = new AbstractSprite();
-    this->m_scenemng.addScene(new BattleScene(this, new Battle(new Trainer(player), new Trainer(enemy))));
+    this->m_scenemng.addScene(new BattleScene(this, new Battle(new Trainer(player), new Trainer(enemy))));*/
 }
 
 sf::RenderWindow& Game::getWindow() {
