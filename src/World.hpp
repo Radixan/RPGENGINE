@@ -3,12 +3,12 @@
 #define __WORLD_HPP__
 
 #include "defines.hpp"
-//#include "Map.hpp"
+#include "Map.hpp"
 
 class World {
     private:
-        //Map                     m_maps[MAX_MAPS];
-
+        Map                     m_maps[MAX_MAPS];
+        
 
     public:
 
