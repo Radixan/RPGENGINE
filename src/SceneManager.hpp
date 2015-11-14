@@ -3,6 +3,7 @@
 #define __SCENEMANAGER_HPP__
 
 #include <vector>
+#include <cstdint>
 #include "AbstractScene.hpp"
 
 class SceneManager {
@@ -27,12 +28,12 @@ class SceneManager {
         */
         void                addScene            (AbstractScene* scene);
         void                removeLast          ();
-        void                removeByIndex       (unsigned int index);
-        void                removePrevious      ();                   
+        void                removeByIndex       (uint16_t index);
+        void                removePrevious      ();
         AbstractScene*      getLastScene        ();
-        AbstractScene*      getSceneByIndex     (unsigned int index);
-        int                 getLastSceneIndex   ();
-        int                 getSceneIndex       (AbstractScene* scene);
+        AbstractScene*      getSceneByIndex     (uint16_t index);
+        uint16_t            getLastSceneIndex   ();
+        uint16_t            getSceneIndex       (AbstractScene* scene);
         void                clear               ();
 };
 

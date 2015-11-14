@@ -19,3 +19,7 @@ uint8_t FileUtils::readByteAsUINT8 (std::ifstream& file) {
   if (file.eof()) return 0x00;
   return file.get();
 }
+
+uint16_t FileUtils::readBytesAsUINT16 (std::ifstream& file) {
+  return (FileUtils::readByteAsUINT8(file) << 8 | FileUtils::readByteAsUINT8(file));
+}

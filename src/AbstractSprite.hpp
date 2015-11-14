@@ -10,17 +10,17 @@ class AbstractSprite {
     private:
         sf::Sprite                m_sprite;
         sf::Texture               m_texture;
-        unsigned int              m_wide = 0;
-        unsigned int              m_hight = 0;
-        unsigned int              m_offsetX = 0;
-        unsigned int              m_offsetY = 0;
-        unsigned int              m_textureWide = 0;
-        unsigned int              m_textureHight = 0;
-        int                       m_x;
-        int                       m_y;
+        uint16_t                  m_wide = 0;
+        uint16_t                  m_hight = 0;
+        uint16_t                  m_offsetX = 0;
+        uint16_t                  m_offsetY = 0;
+        uint16_t                  m_textureWide = 0;
+        uint16_t                  m_textureHight = 0;
+        int16_t                   m_x;
+        int16_t                   m_y;
 
         std::vector<Animation>    m_frames;
-        unsigned int              m_actualFrame;
+        uint16_t                  m_actualFrame;
         sf::Time                  m_time;
         sf::Time                  m_currentTime;
         bool                      m_playing;
@@ -29,22 +29,22 @@ class AbstractSprite {
         void        load                  (const std::string filename);
         void        loadTexture           (sf::Texture& texture);
         void        render                (Game* game);
-        void        setPosition           (int x, int y);
-        void        setDimensions         (unsigned int wide, unsigned int hight);
-        void        setTextureDimensions  (unsigned int wide, unsigned int hight);
+        void        setPosition           (int16_t x, int16_t y);
+        void        setDimensions         (uint16_t wide, uint16_t hight);
+        void        setTextureDimensions  (uint16_t wide, uint16_t hight);
         void        update                (sf::Time deltaTime);
 
         int         getX                  ();
         int         getY                  ();
 
         // Only if all parameters are set
-        void        setIndex              (unsigned int index);
-        void        setOffsets            (unsigned int x, unsigned int y);
+        void        setIndex              (uint16_t index);
+        void        setOffsets            (uint16_t x, uint16_t y);
 
         // Animated
         void        setSpeed              (sf::Time frameTime);
         void        setFrames             (std::vector<Animation> frames);
-        void        setActualFrame        (unsigned int frame);
+        void        setActualFrame        (uint16_t frame);
 
         void        playAnimation         ();
         void        stopAnimation         ();

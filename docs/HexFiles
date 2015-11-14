@@ -1,6 +1,7 @@
 TilesetMetaData: {
   comment:    "Tileset Metadata"
   extension:  ".til"
+  hexType:    "BIG ENDIAN"
 
   Data: {
     uint16_t    id
@@ -16,6 +17,7 @@ TilesetMetaData: {
 PlayerMetaData: {
   comment:     "Player Metadata"
   extension:   ".pl"
+  hexType:    "BIG ENDIAN"
 
   Data: {
     string      inGameMetaDataSpriteFilename
@@ -28,6 +30,7 @@ PlayerMetaData: {
 SpriteMetaData: {
   comment:    "Sprite Metadata"
   extension:  ".spr"
+  hexType:    "BIG ENDIAN"
 
   Data: {
     string      filename
@@ -37,16 +40,21 @@ SpriteMetaData: {
     uint16_t    spriteSheetW
     uint16_t    spriteSheetH
     int         animationFrames
-    Animation: {
-      uint        frame
-      float       seconds (nextFrame time)
-    } * animationFrames
+
+    uint16_t    frame
+    float       seconds (nextFrame time)
+          .
+          .
+          .
+    uint16_t    frame
+    float       seconds (nextFrame time)
   }
 }
 
 MapMetaData: {
   comment:     "Map Metadata"
   extension:   ".mp"
+  hexType:    "BIG ENDIAN"
 
   Data: {
     uint16_t    id
@@ -58,5 +66,24 @@ MapMetaData: {
     byte        ff            =       0xFF
     string      filenameMap
     byte        ff            =       0xFF
+  }
+}
+
+MapData: {
+  comment:    "Map Data"
+  extension:  ".map"
+  hexType:    "BIG ENDIAN"
+
+  Data: {
+    uint16_t    widthTiles;
+    uint16_t    heightTiles;
+    uint8_t     numlayers; // First Up, next down,... last = most down
+    uint16_t[]  tiles // layer 0
+    uint16_t[]  tiles // layer 1
+    uint16_t[]  tiles // layer 2
+            .
+            .
+            .
+    uint16_t[]  tiles // layer 255
   }
 }

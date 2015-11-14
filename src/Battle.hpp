@@ -8,9 +8,9 @@ class Game;
 
 class Battle {
   private:
-    Trainer*       m_player;
-    Trainer*       m_enemy;
-    unsigned int   m_state;
+    Trainer*        m_player;
+    Trainer*        m_enemy;
+    uint8_t         m_state;
 
     void      startingBattle (sf::Time deltaTime);
 

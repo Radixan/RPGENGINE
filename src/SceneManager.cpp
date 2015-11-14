@@ -16,12 +16,12 @@ AbstractScene* SceneManager::getLastScene () {
     return this->m_sceneList.back();
 }
 
-AbstractScene* SceneManager::getSceneByIndex (unsigned int index) {
+AbstractScene* SceneManager::getSceneByIndex (uint16_t index) {
     if (index > this->m_sceneList.size() - 1) return nullptr;
     return this->m_sceneList.at(index);
 }
 
-int SceneManager::getLastSceneIndex() {
+uint16_t SceneManager::getLastSceneIndex() {
     if (this->m_sceneList.size() > 0) return this->m_sceneList.size() - 1;
     else return -1;
 }
@@ -33,7 +33,7 @@ void SceneManager::removeLast() {
     }
 }
 
-void SceneManager::removeByIndex(unsigned int index) {
+void SceneManager::removeByIndex(uint16_t index) {
     if (index <= this->m_sceneList.size() - 1) {
         delete this->m_sceneList.at(index);
         this->m_sceneList.erase(this->m_sceneList.begin()+index);
@@ -45,21 +45,21 @@ void SceneManager::removePrevious() {
     this->m_sceneList.erase(this->m_sceneList.end() - 1);
 }
 
-int SceneManager::getSceneIndex(AbstractScene* scene) {
-    for (unsigned int i = 0; i < this->m_sceneList.size(); i++)
+uint16_t SceneManager::getSceneIndex(AbstractScene* scene) {
+    for (uint16_t i = 0; i < this->m_sceneList.size(); i++)
         if (this->m_sceneList.at(i) == scene)
             return i;
     return -1;
 }
 
 void SceneManager::clear() {
-  for (int i = 0; i < this->m_sceneList.size(); i++)
+  for (uint16_t i = 0; i < this->m_sceneList.size(); i++)
     delete this->m_sceneList.at(i);
 
-  for (int i = 0; i < this->m_removeList.size(); i++)
+  for (uint16_t i = 0; i < this->m_removeList.size(); i++)
     delete this->m_removeList.at(i);
 
-  for (int i = 0; i < this->m_addList.size(); i++)
+  for (uint16_t i = 0; i < this->m_addList.size(); i++)
     delete this->m_addList.at(i);
 
   this->m_sceneList.clear();
@@ -72,7 +72,7 @@ void SceneManager::markToRemove (AbstractScene* scene) {
 }
 
 void SceneManager::deleteMarked () {
-    for (unsigned int i = 0; i < this->m_removeList.size(); i++) {
+    for (uint16_t i = 0; i < this->m_removeList.size(); i++) {
         int x = this->getSceneIndex(this->m_removeList.at(i));
         if (x != -1)
         this->removeByIndex(x);
@@ -85,7 +85,7 @@ void SceneManager::markToAdd (AbstractScene* scene) {
 }
 
 void SceneManager::addMarked () {
-    for (unsigned int i = 0; i < this->m_addList.size(); i++) {
+    for (uint16_t i = 0; i < this->m_addList.size(); i++) {
         this->addScene(this->m_addList.at(i));
         this->m_addList.erase(this->m_addList.begin() + i);
     }

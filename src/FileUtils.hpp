@@ -6,9 +6,10 @@
 
 class FileUtils {
   public:
-    static bool       openBinary      (std::ifstream& file, std::string filename);
-    static char       readByte        (std::ifstream& file);
-    static uint8_t    readByteAsUINT8 (std::ifstream& file);
+    static bool       openBinary        (std::ifstream& file, std::string filename);
+    static char       readByte          (std::ifstream& file);
+    static uint8_t    readByteAsUINT8   (std::ifstream& file);
+    static uint16_t   readBytesAsUINT16 (std::ifstream& file);
 };
 
  #endif // __FILEUTILS_HPP__

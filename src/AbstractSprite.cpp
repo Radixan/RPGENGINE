@@ -18,17 +18,17 @@ void AbstractSprite::render (Game* game) {
   game->getWindow().draw(this->m_sprite);
 }
 
-void AbstractSprite::setDimensions (unsigned int wide, unsigned int hight) {
+void AbstractSprite::setDimensions (uint16_t wide, uint16_t hight) {
   this->m_wide = wide;
   this->m_hight = hight;
 }
 
-void AbstractSprite::setOffsets (unsigned int x, unsigned int y) {
+void AbstractSprite::setOffsets (uint16_t x, uint16_t y) {
   this->m_offsetX = x;
   this->m_offsetY = y;
 }
 
-void AbstractSprite::setTextureDimensions (unsigned int wide, unsigned int hight) {
+void AbstractSprite::setTextureDimensions (uint16_t wide, uint16_t hight) {
   this->m_textureWide = wide;
   this->m_textureHight = hight;
 }
@@ -50,12 +50,12 @@ void AbstractSprite::update (sf::Time deltaTime) {
                                 this->m_wide, this->m_hight));
 }
 
-void AbstractSprite::setIndex (unsigned int index) {
+void AbstractSprite::setIndex (uint16_t index) {
   this->m_offsetX = (index % (this->m_textureWide / this->m_wide)) * (this->m_wide);
   this->m_offsetY = (index / (this->m_textureWide / this->m_wide)) * (this->m_hight);
 }
 
-void AbstractSprite::setPosition (int x, int y) {
+void AbstractSprite::setPosition (int16_t x, int16_t y) {
   this->m_x = x;
   this->m_y = y;
 }
@@ -68,7 +68,7 @@ int AbstractSprite::getY() {
   return this->m_y;
 }
 
-void AbstractSprite::setActualFrame(unsigned int frame) {
+void AbstractSprite::setActualFrame(uint16_t frame) {
   this->m_actualFrame = this->m_frames.at(frame).frame;
   this->m_time = this->m_frames.at(frame).time;
 }

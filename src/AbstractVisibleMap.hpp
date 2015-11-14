@@ -12,24 +12,26 @@ class AbstractVisibleMap {
 
   private:
     AbstractSprite      m_pointer;
-    unsigned int        m_wide;
-    unsigned int        m_hight;
-    unsigned int        m_nTilesX;
-    unsigned int        m_nTilesY;
-    int                 m_offsetX;
-    int                 m_offsetY;
-    unsigned int**      m_map;
+    uint16_t             m_wide;
+    uint16_t            m_hight;
+    uint16_t            m_nTilesX;
+    uint16_t            m_nTilesY;
+    int16_t             m_offsetX;
+    int16_t             m_offsetY;
+    uint16_t**          m_map;
 
   public:
     AbstractVisibleMap              ();
     void        loadTileset         (Tileset& tileset);
-    void        setTileDimension    (unsigned int wide, unsigned int hight);
-    void        setTilesetDimension (unsigned int wide, unsigned int hight); // Neded to reserve enought space
-    void        setOffset           (int x, int y);
-    void        render              (Game* game, unsigned int width, unsigned int hight );
+    void        setTileDimension    (uint16_t wide, uint16_t hight);
+    void        setTilesetDimension (uint16_t wide, uint16_t hight); // Neded to reserve enought space
+    void        setOffset           (int16_t x, int16_t y);
+    void        render              (Game* game, uint16_t width, uint16_t hight );
 
-    unsigned int getTile            (int x, int y);
-    void         setTile            (int x, int y, unsigned int tile);
+    unsigned int getTile            (int16_t x, int16_t y);
+    void         setTile            (int16_t x, int16_t y, uint16_t tile);
+
+    ~AbstractVisibleMap             ();
 
     // Deprecated
     void        load                (std::string filename);

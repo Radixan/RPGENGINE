@@ -4,23 +4,23 @@
 #include "FileUtils.hpp"
 #include <iostream>
 
-int16_t Tileset::getWide () {
+uint16_t Tileset::getWide () {
   return this->m_wide;
 }
 
-int16_t Tileset::getHight () {
+uint16_t Tileset::getHight () {
   return this->m_hight;
 }
 
-int16_t Tileset::getTileWide () {
+uint16_t Tileset::getTileWide () {
   return this->m_tileWide;
 }
 
-int16_t Tileset::getTileHight () {
+uint16_t Tileset::getTileHight () {
   return this->m_tileHight;
 }
 
-int16_t Tileset::getID () {
+uint16_t Tileset::getID () {
   return this->m_ID;
 }
 
@@ -31,7 +31,7 @@ sf::Texture& Tileset::getTexture () {
 void Tileset::load (std::string filename) {
   std::ifstream file;
   if (!FileUtils::openBinary(file, filename));
-  this->m_ID = (FileUtils::readByteAsUINT8(file) << 8 | FileUtils::readByteAsUINT8(file));
+  this->m_ID = FileUtils::readBytesAsUINT16 (file);
 
   std::string textureFilename = "";
   char x = FileUtils::readByte(file);
@@ -42,9 +42,9 @@ void Tileset::load (std::string filename) {
 
   this->m_texture.loadFromFile(textureFilename);
 
-  this->m_tileWide = (FileUtils::readByteAsUINT8(file) << 8 | FileUtils::readByteAsUINT8(file));
-  this->m_tileHight = (FileUtils::readByteAsUINT8(file) << 8 | FileUtils::readByteAsUINT8(file));
+  this->m_tileWide = FileUtils::readBytesAsUINT16 (file);
+  this->m_tileHight = FileUtils::readBytesAsUINT16 (file);
 
-  this->m_wide = (FileUtils::readByteAsUINT8(file) << 8 | FileUtils::readByteAsUINT8(file));
-  this->m_hight = (FileUtils::readByteAsUINT8(file) << 8 | FileUtils::readByteAsUINT8(file));
+  this->m_wide = FileUtils::readBytesAsUINT16 (file);
+  this->m_hight = FileUtils::readBytesAsUINT16 (file);
 }
