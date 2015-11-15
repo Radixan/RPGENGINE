@@ -25,7 +25,7 @@ class Map {
     void            setTileset        (Tileset* tileset);
     void            setScroll         (int16_t x, int16_t y);
     //void            setConnections    (Map* north, Map* south, Map* east, Map* west);
-    void            setDimensions     (uint16_t width, uint16_t height);
+    //void            setDimensions     (uint16_t width, uint16_t height);
 
     void            update (sf::Time deltaTime, uint16_t startTileX, uint16_t startTileY, uint16_t width, uint16_t hight);
     void            render            (Game* game);
