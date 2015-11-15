@@ -15,7 +15,10 @@ TestScene::TestScene(Game* game) {
     this->m_sprite.setTextureDimensions(2240, 1440);
     this->m_sprite.setDimensions(80,80);
     this->m_tileset.load("Data/Tileset.til");
-    this->m_map.loadTileset(this->m_tileset);
+    this->m_palletTown.load("Data/palletTown.map");
+    this->m_palletTown.setTileset(&this->m_tileset);
+
+    /*this->m_map.loadTileset(this->m_tileset);
     this->m_mapBack.loadTileset(this->m_tileset);
 
     // Pallet town example
@@ -155,7 +158,7 @@ TestScene::TestScene(Game* game) {
       this->m_map.setTile(15,11,86);
 
     }
-
+*/
     std::cout << std::endl
               << "ID: " << this->m_tileset.getID()
               << " tileWide: " << this->m_tileset.getTileWide()
@@ -202,15 +205,18 @@ void TestScene::Update() {
   this->m_sprite.setPosition(x,y);
   this->m_sprite.setIndex(spriteIndex);
   this->m_sprite.update(this->m_game->getFrameTime());
-  x %= 64;
-  y %= 64;
-  this->m_map.setOffset(x, y);
-  this->m_mapBack.setOffset(x,y);
+  /*x %= 64;
+  y %= 64;*/
+  /*this->m_map.setOffset(x, y);
+  this->m_mapBack.setOffset(x,y);*/
+  this->m_palletTown.setScroll(x,y);
+  this->m_palletTown.update(this->m_game->getFrameTime(), 4, 5, 14, 9);
 }
 
 void TestScene::Render() {
-  this->m_mapBack.render(this->m_game, WIDTH_TILES, HEIGHT_TILES);
-  this->m_map.render(this->m_game, WIDTH_TILES, HEIGHT_TILES);
+  //this->m_mapBack.render(this->m_game, WIDTH_TILES, HEIGHT_TILES);
+  //this->m_map.render(this->m_game, WIDTH_TILES, HEIGHT_TILES);
+  this->m_palletTown.render(this->m_game);
   this->m_sprite.render(this->m_game);
 }
 

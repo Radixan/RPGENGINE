@@ -10,6 +10,8 @@ class FileUtils {
     static char       readByte          (std::ifstream& file);
     static uint8_t    readByteAsUINT8   (std::ifstream& file);
     static uint16_t   readBytesAsUINT16 (std::ifstream& file);
+    static int8_t     readByteAsINT8    (std::ifstream& file);
+    static int16_t    readBytesAsINT16  (std::ifstream& file);
 };
 
  #endif // __FILEUTILS_HPP__

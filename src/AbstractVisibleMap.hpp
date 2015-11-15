@@ -12,7 +12,7 @@ class AbstractVisibleMap {
 
   private:
     AbstractSprite      m_pointer;
-    uint16_t             m_wide;
+    uint16_t            m_wide;
     uint16_t            m_hight;
     uint16_t            m_nTilesX;
     uint16_t            m_nTilesY;
@@ -26,7 +26,7 @@ class AbstractVisibleMap {
     void        setTileDimension    (uint16_t wide, uint16_t hight);
     void        setTilesetDimension (uint16_t wide, uint16_t hight); // Neded to reserve enought space
     void        setOffset           (int16_t x, int16_t y);
-    void        render              (Game* game, uint16_t width, uint16_t hight );
+    void        render              (Game* game, uint16_t width, uint16_t hight);
 
     unsigned int getTile            (int16_t x, int16_t y);
     void         setTile            (int16_t x, int16_t y, uint16_t tile);

@@ -7,8 +7,8 @@
 
 class World {
     private:
-        Map                     m_maps[MAX_MAPS];
-        
+        Map*                    m_maps;
+
 
     public:
 

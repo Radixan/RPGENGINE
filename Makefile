@@ -7,7 +7,7 @@ C++ := g++
 CPP_FILES := $(wildcard src/*.cpp)
 OBJ_FILES := $(addprefix obj/,$(notdir $(CPP_FILES:.cpp=.o)))
 LD_FLAGS := -lsfml-graphics -lsfml-window -lsfml-system
-CC_FLAGS := -std=c++11
+CC_FLAGS := -std=c++11 -Werror -Wall -g
 BIN_FILE := bin/PokemonIluminati
 RM := rm
 

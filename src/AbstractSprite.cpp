@@ -1,17 +1,18 @@
 
 #include "AbstractSprite.hpp"
+#include <iostream>
 
 void AbstractSprite::load (const std::string filename) {
-    this->m_texture.loadFromFile(filename);
-    this->m_sprite.setTexture(this->m_texture);
-    this->m_frames.clear();
-    this->m_time = sf::Time::Zero;
-    this->m_playing = false;
+  this->m_texture.loadFromFile(filename);
+  this->m_sprite.setTexture(this->m_texture);
+  this->m_frames.clear();
+  this->m_time = sf::Time::Zero;
+  this->m_playing = false;
 }
 
 void AbstractSprite::loadTexture (sf::Texture& texture) {
-    this->m_texture = texture;
-    this->m_sprite.setTexture(this->m_texture);
+  this->m_texture = texture;
+  this->m_sprite.setTexture(this->m_texture);
 }
 
 void AbstractSprite::render (Game* game) {
@@ -39,7 +40,8 @@ void AbstractSprite::update (sf::Time deltaTime) {
     if (this->m_playing && this->m_currentTime >= this->m_time)  {
       // reset time, but keep the remainder
       this->m_currentTime = sf::microseconds(this->m_currentTime.asMicroseconds() % this->m_time.asMicroseconds());
-      this->m_actualFrame = (++this->m_actualFrame) % this->m_frames.size();
+      this->m_actualFrame += 1;
+      this->m_actualFrame %= this->m_frames.size();
       this->m_time = this->m_frames.at(this->m_actualFrame).time;
     }
     this->setIndex(this->m_frames.at(this->m_actualFrame).frame);
@@ -79,7 +81,7 @@ void AbstractSprite::setSpeed (sf::Time frameTime) {
 
 void AbstractSprite::setFrames (std::vector<Animation> frames) {
   this->m_actualFrame = 0;
-  for (int i = 0; i < frames.size(); i++) {
+  for (unsigned int i = 0; i < frames.size(); i++) {
     this->m_frames.push_back(frames.at(i));
   }
 }
