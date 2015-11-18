@@ -18,6 +18,7 @@ class TestScene : public AbstractScene {
     AbstractVisibleMap  m_mapBack;
     Tileset             m_tileset;
     Map                 m_palletTown;
+    Map                 m_palletTown2;
 
   public:
 

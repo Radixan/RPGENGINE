@@ -17,6 +17,8 @@ TestScene::TestScene(Game* game) {
     this->m_tileset.load("Data/Tileset.til");
     this->m_palletTown.load("Data/palletTown.map");
     this->m_palletTown.setTileset(&this->m_tileset);
+    this->m_palletTown2.load("Data/palletTown.map");
+    this->m_palletTown2.setTileset(&this->m_tileset);
 
     /*this->m_map.loadTileset(this->m_tileset);
     this->m_mapBack.loadTileset(this->m_tileset);
@@ -210,13 +212,17 @@ void TestScene::Update() {
   /*this->m_map.setOffset(x, y);
   this->m_mapBack.setOffset(x,y);*/
   this->m_palletTown.setScroll(x,y);
-  this->m_palletTown.update(this->m_game->getFrameTime(), 4, 5, 14, 9);
+  this->m_palletTown.update(this->m_game->getFrameTime(), 4, 14, 14, 4);
+
+  this->m_palletTown2.setScroll(x,y+4*64);
+  this->m_palletTown2.update(this->m_game->getFrameTime(), 4, 0, 14, 5);
 }
 
 void TestScene::Render() {
   //this->m_mapBack.render(this->m_game, WIDTH_TILES, HEIGHT_TILES);
   //this->m_map.render(this->m_game, WIDTH_TILES, HEIGHT_TILES);
   this->m_palletTown.render(this->m_game);
+  this->m_palletTown2.render(this->m_game);
   this->m_sprite.render(this->m_game);
 }
 

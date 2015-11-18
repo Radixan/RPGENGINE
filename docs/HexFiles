@@ -51,6 +51,23 @@ SpriteMetaData: {
   }
 }
 
+WorldMetaData: {
+  comment:     "World Metadata"
+  extension:   ".wd"
+  hexType:    "BIG ENDIAN"
+
+  Data: {
+    uint16_t   nmaps
+    string      filenameMapMetaData
+    byte        ff            =       0xFF
+        .
+        .
+        .
+    string      filenameMapMetaData
+    byte        ff            =       0xFF
+  }
+}
+
 MapMetaData: {
   comment:     "Map Metadata"
   extension:   ".mp"

@@ -7,7 +7,7 @@ class Game;
 class Map {
   private:
     AbstractVisibleMap*         m_visibleMap;
-    //Map*                        m_conections[4]; // North, South, East, West
+    Map*                        m_conections[4]; // North, South, East, West
 
     uint16_t***                 m_map;
     uint16_t                    m_width;
@@ -24,12 +24,17 @@ class Map {
     void            load              (std::string filename);
     void            setTileset        (Tileset* tileset);
     void            setScroll         (int16_t x, int16_t y);
-    //void            setConnections    (Map* north, Map* south, Map* east, Map* west);
+    void            setConnections    (Map* north, Map* south, Map* east, Map* west);
     //void            setDimensions     (uint16_t width, uint16_t height);
 
-    void            update (sf::Time deltaTime, uint16_t startTileX, uint16_t startTileY, uint16_t width, uint16_t hight);
+    void            update            (sf::Time deltaTime, uint16_t startTileX, uint16_t startTileY, uint16_t width, uint16_t hight);
     void            render            (Game* game);
     ~Map                              ();
+
+    Map*            getNorthMap       ();
+    Map*            getSouthMap       ();
+    Map*            getEastMap        ();
+    Map*            getWestMap        ();
 };
 
 #endif // __MAP_HPP__

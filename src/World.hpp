@@ -7,12 +7,19 @@
 
 class World {
     private:
-        Map*                    m_maps;
-
+      Map**                   m_maps;
+      uint16_t                m_nmaps;
 
     public:
+      World();
 
+      void        load              (std::string filename);
 
+      // Sprites Related
+      int         getRelativeX      (int x);
+      int         getRelativeY      (int y);
+
+      ~World();
 };
 
 #endif // __WORLD_HPP__
