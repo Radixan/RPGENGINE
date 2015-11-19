@@ -8,6 +8,7 @@
 #include "Game.hpp"
 #include "Tileset.hpp"
 #include "Map.hpp"
+#include "World.hpp"
 
 class TestScene : public AbstractScene {
   private:
@@ -17,8 +18,10 @@ class TestScene : public AbstractScene {
     AbstractVisibleMap  m_map;
     AbstractVisibleMap  m_mapBack;
     Tileset             m_tileset;
-    Map                 m_palletTown;
-    Map                 m_palletTown2;
+  //  Map                 m_palletTown;
+  //  Map                 m_palletTown2;
+    Map*                m_mapa;
+    World               m_world;
 
   public:
 

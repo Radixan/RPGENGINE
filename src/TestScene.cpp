@@ -14,12 +14,16 @@ TestScene::TestScene(Game* game) {
     this->m_sprite.load("Data/Pokemon.png");
     this->m_sprite.setTextureDimensions(2240, 1440);
     this->m_sprite.setDimensions(80,80);
-    this->m_tileset.load("Data/Tileset.til");
-    this->m_palletTown.load("Data/palletTown.map");
+    //this->m_tileset.load("Data/Tileset.til");
+    this->m_world.load("Data/World.wd");
+    this->m_mapa = this->m_world.getMap();
+    //this->m_mapa->setTileset(&this->m_tileset);
+
+    /*this->m_palletTown.load("Data/palletTown.map");
     this->m_palletTown.setTileset(&this->m_tileset);
     this->m_palletTown2.load("Data/palletTown.map");
     this->m_palletTown2.setTileset(&this->m_tileset);
-
+*/
     /*this->m_map.loadTileset(this->m_tileset);
     this->m_mapBack.loadTileset(this->m_tileset);
 
@@ -161,13 +165,12 @@ TestScene::TestScene(Game* game) {
 
     }
 */
-    std::cout << std::endl
-              << "ID: " << this->m_tileset.getID()
+    /*std::cout << "ID: " << this->m_tileset.getID()
               << " tileWide: " << this->m_tileset.getTileWide()
               << " tilehight: " << this->m_tileset.getTileHight()
               << " wide: " << this->m_tileset.getWide()
               << " hight: " << this->m_tileset.getHight() << std::endl;
-
+*/
 }
 
 void TestScene::Update() {
@@ -209,20 +212,24 @@ void TestScene::Update() {
   this->m_sprite.update(this->m_game->getFrameTime());
   /*x %= 64;
   y %= 64;*/
+  this->m_mapa->setScroll(x,y);
+  this->m_mapa->update(this->m_game->getFrameTime(), 4, 14, 14, 4);
   /*this->m_map.setOffset(x, y);
   this->m_mapBack.setOffset(x,y);*/
-  this->m_palletTown.setScroll(x,y);
+  /*this->m_palletTown.setScroll(x,y);
   this->m_palletTown.update(this->m_game->getFrameTime(), 4, 14, 14, 4);
 
   this->m_palletTown2.setScroll(x,y+4*64);
   this->m_palletTown2.update(this->m_game->getFrameTime(), 4, 0, 14, 5);
+  */
 }
 
 void TestScene::Render() {
   //this->m_mapBack.render(this->m_game, WIDTH_TILES, HEIGHT_TILES);
   //this->m_map.render(this->m_game, WIDTH_TILES, HEIGHT_TILES);
-  this->m_palletTown.render(this->m_game);
-  this->m_palletTown2.render(this->m_game);
+  /*this->m_palletTown.render(this->m_game);
+  this->m_palletTown2.render(this->m_game);*/
+  this->m_mapa->render(this->m_game);
   this->m_sprite.render(this->m_game);
 }
 

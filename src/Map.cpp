@@ -4,11 +4,11 @@
 #include <fstream>
 #include <iostream>
 
-Map::Map() {
+void Map::Construct() {
   this->m_visibleMap = nullptr;
   this->m_map = nullptr;
-/*  for (int i = 0; i < 4; i++)
-    this->m_conections[0] = nullptr;*/
+  for (int i = 0; i < 4; i++)
+    this->m_conections[i] = 0;
 
   this->m_width = 0;
   this->m_height = 0;
@@ -17,6 +17,15 @@ Map::Map() {
   this->m_layers = 0;
   this->m_renderWidth = 0;
   this->m_renderHeight = 0;
+}
+
+Map::Map() {
+  this->Construct();
+}
+
+Map::Map(std::string filename) {
+  this->Construct();
+  this->load(filename);
 }
 
 void Map::setTileset (Tileset* tileset) {
@@ -28,7 +37,6 @@ void Map::setTileset (Tileset* tileset) {
 }
 
 void Map::load (std::string filename) {
-
   if (this->m_map != nullptr) {
     for (uint8_t i = 0; i < this->m_layers; i++) {
       for (uint16_t x = 0; x < this->m_width; x++) {
@@ -68,7 +76,7 @@ void Map::setScroll (int16_t x, int16_t y) {
   this->m_scrolly = y;
 }
 
-void Map::setConnections (Map* north, Map* south, Map* east, Map* west) {
+void Map::setConnections (uint16_t north, uint16_t south, uint16_t east, uint16_t west) {
   this->m_conections[0] = north;
   this->m_conections[1] = south;
   this->m_conections[2] = east;
@@ -119,18 +127,34 @@ Map::~Map () {
     delete[] this->m_visibleMap;
 }
 
-Map* Map::getNorthMap () {
+uint16_t Map::getNorthMap () {
   return this->m_conections[0];
 }
 
-Map* Map::getSouthMap () {
+uint16_t Map::getSouthMap () {
   return this->m_conections[1];
 }
 
-Map* Map::getEastMap (){
+uint16_t Map::getEastMap (){
   return this->m_conections[2];
 }
 
-Map* Map::getWestMap (){
+uint16_t Map::getWestMap (){
   return this->m_conections[3];
+}
+
+void Map::setID (uint16_t id) {
+  this->m_id = id;
+}
+
+void Map::setTilesetID (uint16_t tid) {
+  this->m_tilesetID = tid;
+}
+
+uint16_t Map::getTilesetID () {
+  return this->m_tilesetID;
+}
+
+uint16_t Map::getID() {
+  return this->m_id;
 }

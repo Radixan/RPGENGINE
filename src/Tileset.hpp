@@ -13,7 +13,12 @@ class Tileset {
     uint16_t       m_wide;
     uint16_t       m_hight;
 
+    void        Construct ();
+
   public:
+    Tileset();
+    Tileset(std::string filename);
+
     void        load            (std::string filename);
 
     uint16_t       getID       ();

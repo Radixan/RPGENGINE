@@ -4,20 +4,25 @@
 
 #include "defines.hpp"
 #include "Map.hpp"
+#include "Tileset.hpp"
 
 class World {
     private:
       Map**                   m_maps;
       uint16_t                m_nmaps;
+      Tileset**               m_tilesets;
+      uint16_t                m_ntilesets;
+
+      void        Construct     ();
 
     public:
       World();
+      World(std::string filename);
 
       void        load              (std::string filename);
+      void        lockSprite        (AbstractSprite& sprite);
 
-      // Sprites Related
-      int         getRelativeX      (int x);
-      int         getRelativeY      (int y);
+      Map*        getMap();
 
       ~World();
 };

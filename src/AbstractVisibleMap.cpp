@@ -20,7 +20,6 @@ void AbstractVisibleMap::loadTileset (Tileset& tileset) {
   this->setTilesetDimension(tileset.getWide(), tileset.getHight());
 }
 
-#include <iostream>
 void AbstractVisibleMap::setTileDimension(uint16_t wide, uint16_t hight) {
   // Delete old map, if it exists
   if (this->m_map != nullptr) {
@@ -46,8 +45,6 @@ void AbstractVisibleMap::setTileDimension(uint16_t wide, uint16_t hight) {
     for (uint16_t j = 0; j < this->m_nTilesY; j++)
       this->m_map[i][j] = 0;
   }
-
-  std::cout << this->m_nTilesX << " " << this->m_nTilesY << std::endl;
 }
 
 void AbstractVisibleMap::setTilesetDimension (uint16_t wide, uint16_t hight) {

@@ -4,6 +4,23 @@
 #include "FileUtils.hpp"
 #include <iostream>
 
+void Tileset::Construct() {
+  this->m_ID = 0;
+  this->m_tileWide = 0;
+  this->m_tileHight = 0;
+  this->m_wide = 0;
+  this->m_hight = 0;
+}
+
+Tileset::Tileset() {
+  this->Construct();
+}
+
+Tileset::Tileset(std::string filename) {
+  this->Construct();
+  this->load(filename);
+}
+
 uint16_t Tileset::getWide () {
   return this->m_wide;
 }

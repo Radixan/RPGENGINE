@@ -57,7 +57,15 @@ WorldMetaData: {
   hexType:    "BIG ENDIAN"
 
   Data: {
-    uint16_t   nmaps
+    uint16_t    nTilesets
+    string      filenameTilesetMetaData
+    byte        ff            =       0xFF
+        .
+        .
+        .
+    string      filenameTilesetMetaData
+    byte        ff            =       0xFF
+    uint16_t    nmaps
     string      filenameMapMetaData
     byte        ff            =       0xFF
         .
@@ -75,12 +83,11 @@ MapMetaData: {
 
   Data: {
     uint16_t    id
-    uint16_t    rightMapId
-    uint16_t    lefttMapId
-    uint16_t    upMapId
-    uint16_t    downMapId
-    string      filenameTilesetMetaData
-    byte        ff            =       0xFF
+    uint16_t    northMapId
+    uint16_t    southtMapId
+    uint16_t    eastMapId
+    uint16_t    westMapId
+    uint16_t    tilesetId
     string      filenameMap
     byte        ff            =       0xFF
   }
