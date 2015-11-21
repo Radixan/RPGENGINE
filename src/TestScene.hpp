@@ -20,7 +20,7 @@ class TestScene : public AbstractScene {
     Tileset             m_tileset;
   //  Map                 m_palletTown;
   //  Map                 m_palletTown2;
-    Map*                m_mapa;
+  //  Map*                m_mapa;
     World               m_world;
 
   public:

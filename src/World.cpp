@@ -5,10 +5,7 @@
 #include "MapMetadataParser.hpp"
 
 void World::Construct() {
-  this->m_maps = nullptr;
-  this->m_nmaps = 0;
-  this->m_tilesets = nullptr;
-  this->m_ntilesets = 0;
+
 }
 
 World::World() {
@@ -24,25 +21,25 @@ void World::load (std::string filename) {
   std::ifstream file;
   if (!FileUtils::openBinary(file, filename));
 
-  this->m_ntilesets = FileUtils::readBytesAsUINT16(file);
-  this->m_tilesets = new Tileset* [this->m_ntilesets];
+  uint16_t ntilesets = FileUtils::readBytesAsUINT16(file);
 
   // Load tilesets in memory
-  for (uint16_t i = 0; i < this->m_ntilesets; i++) {
+  for (uint16_t i = 0; i < ntilesets; i++) {
     std::string tilesetFilename = "";
     char x = FileUtils::readByte(file);
     while ((uint8_t)x != 255 && !file.eof()) {
       tilesetFilename += x;
       x = FileUtils::readByte(file);
     }
-    this->m_tilesets[i] = new Tileset(tilesetFilename);
+
+    Tileset* tileset = new Tileset(tilesetFilename);
+    this->m_tilesets[tileset->getID()] = tileset;
   }
 
-  this->m_nmaps = FileUtils::readBytesAsUINT16(file);
-  this->m_maps = new Map* [this->m_nmaps];
+  uint16_t nmaps = FileUtils::readBytesAsUINT16(file);
 
   // Load maps in memory
-  for (uint16_t i = 0; i < this->m_nmaps; i++) {
+  for (uint16_t i = 0; i < nmaps; i++) {
     std::string mapFilename = "";
     char x = FileUtils::readByte(file);
     while ((uint8_t)x != 255 && !file.eof()) {
@@ -50,12 +47,9 @@ void World::load (std::string filename) {
       x = FileUtils::readByte(file);
     }
 
-    this->m_maps[i] = MapMetadataParser::parse(mapFilename);
-    for (int j = 0; j < this->m_ntilesets; j++) {
-      if (this->m_tilesets[j]->getID() == this->m_maps[i]->getTilesetID()) {
-        this->m_maps[i]->setTileset(this->m_tilesets[j]);
-      }
-    }
+    Map* map = MapMetadataParser::parse(mapFilename);
+    this->m_maps[map->getID()] = map;
+    this->m_maps[map->getID()]->setTileset(this->m_tilesets[map->getTilesetID()]);
   }
 
   file.close();
@@ -65,12 +59,14 @@ void World::lockSprite (AbstractSprite& sprite) {
 
 }
 
+void World::setActualMap (uint16_t map) {
+  this->m_actualMap = this->m_maps[map];
+}
+
 Map* World::getMap() {
-  return this->m_maps[0];
+  return this->m_actualMap;
 }
 
 World::~World() {
-  for (uint16_t i = 0; i < this->m_nmaps; i++)
-    delete this->m_maps[i];
-  delete[] this->m_maps;
+  
 }

@@ -5,13 +5,15 @@
 #include "defines.hpp"
 #include "Map.hpp"
 #include "Tileset.hpp"
+#include <unordered_map>
 
 class World {
     private:
-      Map**                   m_maps;
-      uint16_t                m_nmaps;
-      Tileset**               m_tilesets;
-      uint16_t                m_ntilesets;
+      //Map**                   m_maps;
+      std::unordered_map<uint16_t, Map*>      m_maps;
+      std::unordered_map<uint16_t, Tileset*>  m_tilesets;
+
+      Map*                                    m_actualMap;
 
       void        Construct     ();
 
@@ -22,7 +24,8 @@ class World {
       void        load              (std::string filename);
       void        lockSprite        (AbstractSprite& sprite);
 
-      Map*        getMap();
+      void        setActualMap      (uint16_t map);
+      Map*        getMap            ();
 
       ~World();
 };
