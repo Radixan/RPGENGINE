@@ -68,5 +68,11 @@ Map* World::getMap() {
 }
 
 World::~World() {
-  
+  for (auto tileset = this->m_tilesets.begin(); tileset != this->m_tilesets.end(); tileset++)
+    delete tileset->second;
+  this->m_tilesets.clear();
+
+  for (auto map = this->m_maps.begin(); map != this->m_maps.end(); map++)
+    delete map->second;
+  this->m_maps.clear();
 }
