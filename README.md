@@ -1,6 +1,6 @@
 # RPGENGINE
 Litle RPG Engine
 
-Not a especial Project
+Not a special Project
 
 Created by OdnetninI
