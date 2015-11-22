@@ -3,7 +3,7 @@
 
 int numscenes = 0;
 int spriteIndex = 0;
-int x = 0, y = 0;
+int x = ((WIN_X/2)/64)*64, y = ((WIN_Y/2)/64)*64;
 
 TestScene::TestScene(Game* game) {
     this->m_game = game;
@@ -14,6 +14,11 @@ TestScene::TestScene(Game* game) {
     this->m_sprite.load("Data/Pokemon.png");
     this->m_sprite.setTextureDimensions(2240, 1440);
     this->m_sprite.setDimensions(80,80);
+
+    this->m_test.load("Data/Test.png");
+    this->m_test.setTextureDimensions(64,64);
+    this->m_test.setDimensions(64,64);
+    this->m_test.setIndex(0);
     //this->m_tileset.load("Data/Tileset.til");
     this->m_world.load("Data/World.wd");
     this->m_world.setActualMap(1);
@@ -207,6 +212,13 @@ void TestScene::Update() {
   }
 
   //this->m_sprite.setIndex(spriteIndex);
+  //this->m_world.getMap()->setScroll(x,y);
+  //this->m_world.getMap()->update(this->m_game->getFrameTime(), 0, 0, 14, 9);
+  this->m_world.lockSprite(this->m_test);
+  this->m_world.setCamera(x,y);
+  this->m_world.update(this->m_game->getFrameTime());
+  this->m_test.update(this->m_game->getFrameTime());
+
   this->m_sprite.setPosition(x,y);
   this->m_sprite.setIndex(spriteIndex);
   this->m_sprite.update(this->m_game->getFrameTime());
@@ -215,8 +227,6 @@ void TestScene::Update() {
   /*this->m_mapa->setScroll(x,y);
   this->m_mapa->update(this->m_game->getFrameTime(), 4, 14, 14, 4);
   */
-  this->m_world.getMap()->setScroll(x,y);
-  this->m_world.getMap()->update(this->m_game->getFrameTime(), 4, 14, 14, 4);
   /*this->m_map.setOffset(x, y);
   this->m_mapBack.setOffset(x,y);*/
   /*this->m_palletTown.setScroll(x,y);
@@ -234,7 +244,9 @@ void TestScene::Render() {
   this->m_palletTown2.render(this->m_game);*/
   //this->m_mapa->render(this->m_game);
   this->m_world.getMap()->render(this->m_game);
+  //this->m_world.render(this->m_game);
   this->m_sprite.render(this->m_game);
+  this->m_test.render(this->m_game);
 }
 
 TestScene::~TestScene() {

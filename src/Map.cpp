@@ -88,7 +88,7 @@ void Map::setDimensions (uint16_t width, uint16_t height) {
   this->m_height = height;
 }
 */
-void Map::update (sf::Time deltaTime, uint16_t startTileX, uint16_t startTileY, uint16_t width, uint16_t hight) {
+void Map::update (sf::Time deltaTime, int16_t startTileX, int16_t startTileY, uint16_t width, uint16_t hight) {
   if (this->m_visibleMap != nullptr) {
     this->m_renderWidth = width;
     this->m_renderHeight = hight;
@@ -96,9 +96,12 @@ void Map::update (sf::Time deltaTime, uint16_t startTileX, uint16_t startTileY, 
       this->m_visibleMap[i].setOffset(this->m_scrollx, this->m_scrolly);
 
       // FIXME: Reverse map
-      for (uint16_t x = startTileX; x < width + startTileX; x++) {
-        for (uint16_t y = startTileY; y < hight + startTileY; y++) {
-          this->m_visibleMap[i].setTile(x - startTileX, y - startTileY, this->m_map[i][y][x]);
+      for (int16_t x = startTileX; x < width + startTileX; x++) {
+        for (int16_t y = startTileY; y < hight + startTileY; y++) {
+          if (y < this->m_height && x < this->m_width && y >= 0 && x >= 0)
+            this->m_visibleMap[i].setTile(x - startTileX, y - startTileY, this->m_map[i][y][x]);
+          else
+            this->m_visibleMap[i].setTile(x - startTileX, y - startTileY, 0);
         }
       }
     }

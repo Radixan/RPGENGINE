@@ -53,8 +53,10 @@ void AbstractSprite::update (sf::Time deltaTime) {
 }
 
 void AbstractSprite::setIndex (uint16_t index) {
-  this->m_offsetX = (index % (this->m_textureWide / this->m_wide)) * (this->m_wide);
-  this->m_offsetY = (index / (this->m_textureWide / this->m_wide)) * (this->m_hight);
+  if (index < (this->m_textureWide / this->m_wide)*(this->m_textureHight / this->m_hight)) {
+    this->m_offsetX = (index % (this->m_textureWide / this->m_wide)) * (this->m_wide);
+    this->m_offsetY = (index / (this->m_textureWide / this->m_wide)) * (this->m_hight);
+  }
 }
 
 void AbstractSprite::setPosition (int16_t x, int16_t y) {

@@ -35,7 +35,7 @@ class Map {
     void            setID             (uint16_t id);
     void            setTilesetID      (uint16_t tid);
 
-    void            update            (sf::Time deltaTime, uint16_t startTileX, uint16_t startTileY, uint16_t width, uint16_t hight);
+    void            update            (sf::Time deltaTime, int16_t startTileX, int16_t startTileY, uint16_t width, uint16_t hight);
     void            render            (Game* game);
     ~Map                              ();
 

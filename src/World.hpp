@@ -14,6 +14,11 @@ class World {
       std::unordered_map<uint16_t, Tileset*>  m_tilesets;
 
       Map*                                    m_actualMap;
+      Map*                                    m_actualNorthMap;
+      Map*                                    m_actualSouthMap;
+      Map*                                    m_actualEastMap;
+      Map*                                    m_actualWestMap;
+      int16_t x,y;
 
       void        Construct     ();
 
@@ -26,6 +31,10 @@ class World {
 
       void        setActualMap      (uint16_t map);
       Map*        getMap            ();
+
+      void        update            (sf::Time deltaTime);
+      void        setCamera         (int16_t x, int16_t y);
+      void        render            (Game* game);
 
       ~World();
 };

@@ -15,6 +15,7 @@ class TestScene : public AbstractScene {
     Game*               m_game;
     int                 m_num;
     AbstractSprite      m_sprite;
+    AbstractSprite      m_test;
     AbstractVisibleMap  m_map;
     AbstractVisibleMap  m_mapBack;
     Tileset             m_tileset;
