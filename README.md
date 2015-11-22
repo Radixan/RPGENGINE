@@ -1,5 +1,5 @@
 # RPGENGINE
-Litle RPG Engine
+Little RPG Engine
 
 Not a special Project
 
