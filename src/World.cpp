@@ -5,7 +5,11 @@
 #include "MapMetadataParser.hpp"
 
 void World::Construct() {
-
+  this->m_actualMap = nullptr;
+  this->m_actualNorthMap = nullptr;
+  this->m_actualSouthMap = nullptr;
+  this->m_actualEastMap = nullptr;
+  this->m_actualWestMap = nullptr;
 }
 
 World::World() {
@@ -69,9 +73,9 @@ void World::setCamera(int16_t x, int16_t y) {
 void World::setActualMap (uint16_t map) {
   this->m_actualMap = this->m_maps[map];
   /*this->m_actualNorthMap = this->m_maps[this->m_actualMap->getNorthMap()];
-  this->m_actualSouthMap = this->m_maps[this->m_actualMap->getSouthMap()];
+  this->m_actualSouthMap = this->m_maps[this->m_actualMap->getSouthMap()];*/
   this->m_actualEastMap = this->m_maps[this->m_actualMap->getEastMap()];
-  this->m_actualWestMap = this->m_maps[this->m_actualMap->getWestMap()];*/
+  //this->m_actualWestMap = this->m_maps[this->m_actualMap->getWestMap()];
 }
 
 Map* World::getMap() {
@@ -80,6 +84,7 @@ Map* World::getMap() {
 
 // FIXME: Imposible Loop map
 void World::update (sf::Time deltaTime) {
+  //TODO: change map
   uint16_t tileW = this->m_tilesets[this->m_actualMap->getTilesetID()]->getTileWide();
   uint16_t tileH = this->m_tilesets[this->m_actualMap->getTilesetID()]->getTileHight();
   int16_t startTileX = (this->x / tileW) - ((WIN_X / 2) / tileW);
@@ -89,14 +94,22 @@ void World::update (sf::Time deltaTime) {
   uint16_t with = ((this->m_actualMap->getWidth() - startTileX) >= (WIN_X / tileW)) ? (WIN_X / tileW) : (this->m_actualMap->getWidth() - startTileX);
   uint16_t higth = ((this->m_actualMap->getHight() - startTileY) >= (WIN_Y / tileH)) ? (WIN_Y / tileH) : (this->m_actualMap->getHight() - startTileY);
   this->m_actualMap->update(deltaTime, startTileX, startTileY, (with)+1, (higth)+1);
+
+  if (this->m_actualEastMap != nullptr) {
+    if (with <= (WIN_X / tileW)) {
+      this->m_actualEastMap->setScroll((-(this->x % tileW)) + with*tileW, -(this->y % tileH));
+      this->m_actualEastMap->update(deltaTime, 0, startTileY, (WIN_X / tileW) - with + 1, higth+1);
+    }
+  }
+
 }
 
 void World::render (Game* game) {
-  this->m_actualMap->render(game);
   /*this->m_actualNorthMap->render(game);
-  this->m_actualSouthMap->render(game);
+  this->m_actualSouthMap->render(game);*/
   this->m_actualEastMap->render(game);
-  this->m_actualWestMap->render(game);*/
+  //this->m_actualWestMap->render(game);
+  this->m_actualMap->render(game);
 }
 
 World::~World() {

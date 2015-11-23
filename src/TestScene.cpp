@@ -243,7 +243,7 @@ void TestScene::Render() {
   /*this->m_palletTown.render(this->m_game);
   this->m_palletTown2.render(this->m_game);*/
   //this->m_mapa->render(this->m_game);
-  this->m_world.getMap()->render(this->m_game);
+  this->m_world.render(this->m_game);
   //this->m_world.render(this->m_game);
   this->m_sprite.render(this->m_game);
   this->m_test.render(this->m_game);
