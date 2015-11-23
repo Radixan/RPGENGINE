@@ -46,6 +46,9 @@ class Map {
 
     uint16_t        getID             ();
     uint16_t        getTilesetID      ();
+
+    uint16_t        getWidth          ();
+    uint16_t        getHight          ();
 };
 
 #endif // __MAP_HPP__

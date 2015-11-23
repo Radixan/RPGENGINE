@@ -161,3 +161,11 @@ uint16_t Map::getTilesetID () {
 uint16_t Map::getID() {
   return this->m_id;
 }
+
+uint16_t Map::getWidth() {
+  return this->m_width;
+}
+
+uint16_t Map::getHight() {
+  return this->m_height;
+}

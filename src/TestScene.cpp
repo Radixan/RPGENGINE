@@ -190,22 +190,22 @@ void TestScene::Update() {
     if (event.type == sf::Event::KeyPressed) {
       if (event.key.code == sf::Keyboard::Right) {
         spriteIndex++;
-        x++;
+        x+=4;
         std::cout << "Index: " << spriteIndex << std::endl;
       }
       if (event.key.code == sf::Keyboard::Left) {
         spriteIndex--;
-        x--;
+        x-=4;
         std::cout << "Index: " << spriteIndex << std::endl;
       }
       if (event.key.code == sf::Keyboard::Down) {
         spriteIndex++;
-        y++;
+        y+=4;
         std::cout << "Index: " << spriteIndex << std::endl;
       }
       if (event.key.code == sf::Keyboard::Up) {
         spriteIndex--;
-        y--;
+        y-=4;
         std::cout << "Index: " << spriteIndex << std::endl;
       }
     }

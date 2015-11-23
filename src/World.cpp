@@ -85,7 +85,10 @@ void World::update (sf::Time deltaTime) {
   int16_t startTileX = (this->x / tileW) - ((WIN_X / 2) / tileW);
   int16_t startTileY = (this->y / tileH) - ((WIN_Y / 2) / tileH);
   this->m_actualMap->setScroll(-this->x % tileW, -this->y % tileH);
-  this->m_actualMap->update(deltaTime, startTileX, startTileY, (WIN_X / tileW)+1, (WIN_Y / tileH)+1);
+
+  uint16_t with = ((this->m_actualMap->getWidth() - startTileX) >= (WIN_X / tileW)) ? (WIN_X / tileW) : (this->m_actualMap->getWidth() - startTileX);
+  uint16_t higth = ((this->m_actualMap->getHight() - startTileY) >= (WIN_Y / tileH)) ? (WIN_Y / tileH) : (this->m_actualMap->getHight() - startTileY);
+  this->m_actualMap->update(deltaTime, startTileX, startTileY, (with)+1, (higth)+1);
 }
 
 void World::render (Game* game) {
