@@ -34,6 +34,8 @@ class World {
 
       void        update            (sf::Time deltaTime);
       void        setCamera         (int16_t x, int16_t y);
+      int16_t     getCameraX        ();
+      int16_t     getCameraY        ();
       void        render            (Game* game);
 
       ~World();

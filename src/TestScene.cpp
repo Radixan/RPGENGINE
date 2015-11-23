@@ -191,22 +191,22 @@ void TestScene::Update() {
       if (event.key.code == sf::Keyboard::Right) {
         spriteIndex++;
         x+=4;
-        std::cout << "Index: " << spriteIndex << std::endl;
+        //std::cout << "Index: " << spriteIndex << std::endl;
       }
       if (event.key.code == sf::Keyboard::Left) {
         spriteIndex--;
         x-=4;
-        std::cout << "Index: " << spriteIndex << std::endl;
+        //std::cout << "Index: " << spriteIndex << std::endl;
       }
       if (event.key.code == sf::Keyboard::Down) {
         spriteIndex++;
         y+=4;
-        std::cout << "Index: " << spriteIndex << std::endl;
+        //std::cout << "Index: " << spriteIndex << std::endl;
       }
       if (event.key.code == sf::Keyboard::Up) {
         spriteIndex--;
         y-=4;
-        std::cout << "Index: " << spriteIndex << std::endl;
+        //std::cout << "Index: " << spriteIndex << std::endl;
       }
     }
   }
@@ -217,6 +217,8 @@ void TestScene::Update() {
   this->m_world.lockSprite(this->m_test);
   this->m_world.setCamera(x,y);
   this->m_world.update(this->m_game->getFrameTime());
+  x = this->m_world.getCameraX();
+  y = this->m_world.getCameraY();
   this->m_test.update(this->m_game->getFrameTime());
 
   this->m_sprite.setPosition(x,y);
@@ -245,7 +247,7 @@ void TestScene::Render() {
   //this->m_mapa->render(this->m_game);
   this->m_world.render(this->m_game);
   //this->m_world.render(this->m_game);
-  this->m_sprite.render(this->m_game);
+  //this->m_sprite.render(this->m_game);
   this->m_test.render(this->m_game);
 }
 

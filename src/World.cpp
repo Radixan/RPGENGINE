@@ -70,12 +70,20 @@ void World::setCamera(int16_t x, int16_t y) {
   this->y = y;
 }
 
+int16_t World::getCameraX () {
+  return this->x;
+}
+
+int16_t World::getCameraY () {
+  return this->y;
+}
+
 void World::setActualMap (uint16_t map) {
   this->m_actualMap = this->m_maps[map];
-  /*this->m_actualNorthMap = this->m_maps[this->m_actualMap->getNorthMap()];
-  this->m_actualSouthMap = this->m_maps[this->m_actualMap->getSouthMap()];*/
+  this->m_actualNorthMap = this->m_maps[this->m_actualMap->getNorthMap()];
+  this->m_actualSouthMap = this->m_maps[this->m_actualMap->getSouthMap()];
   this->m_actualEastMap = this->m_maps[this->m_actualMap->getEastMap()];
-  //this->m_actualWestMap = this->m_maps[this->m_actualMap->getWestMap()];
+  this->m_actualWestMap = this->m_maps[this->m_actualMap->getWestMap()];
 }
 
 Map* World::getMap() {
@@ -84,7 +92,6 @@ Map* World::getMap() {
 
 // FIXME: Imposible Loop map
 void World::update (sf::Time deltaTime) {
-  //TODO: change map
   uint16_t tileW = this->m_tilesets[this->m_actualMap->getTilesetID()]->getTileWide();
   uint16_t tileH = this->m_tilesets[this->m_actualMap->getTilesetID()]->getTileHight();
   int16_t startTileX = (this->x / tileW) - ((WIN_X / 2) / tileW);
@@ -102,13 +109,54 @@ void World::update (sf::Time deltaTime) {
     }
   }
 
+  if (this->m_actualWestMap != nullptr) {
+    if ((this->x / tileW) < ((WIN_X / 2) / tileW)) {
+      uint16_t leftaling = ((WIN_X / 2) / tileW) - (this->x / tileW);
+      this->m_actualWestMap->setScroll((-(this->x % tileW + tileW)), -(this->y % tileH));
+      this->m_actualWestMap->update(deltaTime, this->m_actualWestMap->getWidth() - leftaling - 1, startTileY, leftaling + 1, higth+1);
+    }
+  }
+
+  if (this->m_actualNorthMap != nullptr) {
+    if ((this->y / tileH) < ((WIN_Y / 2) / tileH)) {
+      uint16_t upaling = ((WIN_Y / 2) / tileH) - (this->y / tileH);
+      this->m_actualEastMap->setScroll(-this->x % tileW, -(this->y % tileH + tileH));
+      this->m_actualEastMap->update(deltaTime, startTileX, this->m_actualNorthMap->getHight() - upaling - 1, with + 1, upaling + 1);
+    }
+  }
+
+  if (this->m_actualSouthMap != nullptr) {
+    if ((this->y / tileH) > ((WIN_Y / 2) / tileH)) {
+      this->m_actualSouthMap->setScroll(-this->x % tileW, -(this->y % tileH) + higth * tileH);
+      this->m_actualSouthMap->update(deltaTime, startTileX, 0, with + 1, (WIN_Y / tileH) - higth + 1);
+    }
+  }
+
+  std::cout << "ID: " << this->m_actualMap->getID()-1 << std::endl;
+  if ((this->x / tileW) > this->m_actualMap->getWidth() - 1) {
+    this->x = 0;
+    this->setActualMap(this->m_actualEastMap->getID());
+  }
+  if ((this->x / tileW) < 0) {
+    this->x = (this->m_actualWestMap->getWidth() - 1)*tileW;
+    this->setActualMap(this->m_actualWestMap->getID());
+  }
+  if ((this->y / tileH) < 0) {
+    this->y = (this->m_actualNorthMap->getHight() - 1)*tileH;
+    this->setActualMap(this->m_actualNorthMap->getID());
+  }
+
+  if ((this->y / tileH) > this->m_actualMap->getHight() - 1) {
+    this->y = 0;
+    this->setActualMap(this->m_actualSouthMap->getID());
+  }
 }
 
 void World::render (Game* game) {
-  /*this->m_actualNorthMap->render(game);
-  this->m_actualSouthMap->render(game);*/
+  this->m_actualNorthMap->render(game);
+  this->m_actualSouthMap->render(game);
   this->m_actualEastMap->render(game);
-  //this->m_actualWestMap->render(game);
+  this->m_actualWestMap->render(game);
   this->m_actualMap->render(game);
 }
 
