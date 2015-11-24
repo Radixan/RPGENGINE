@@ -92,6 +92,8 @@ Map* World::getMap() {
 
 // FIXME: Imposible Loop map
 void World::update (sf::Time deltaTime) {
+  if (this->m_actualMap == nullptr) return;
+
   uint16_t tileW = this->m_tilesets[this->m_actualMap->getTilesetID()]->getTileWide();
   uint16_t tileH = this->m_tilesets[this->m_actualMap->getTilesetID()]->getTileHight();
   int16_t startTileX = (this->x / tileW) - ((WIN_X / 2) / tileW);
@@ -133,31 +135,31 @@ void World::update (sf::Time deltaTime) {
   }
 
   std::cout << "ID: " << this->m_actualMap->getID()-1 << std::endl;
-  if ((this->x / tileW) > this->m_actualMap->getWidth() - 1) {
+  if (this->m_actualEastMap != nullptr && (this->x / tileW) > this->m_actualMap->getWidth() - 1) {
     this->x = 0;
     this->setActualMap(this->m_actualEastMap->getID());
   }
-  if ((this->x / tileW) < 0) {
+  if (this->m_actualWestMap != nullptr && (this->x / tileW) < 0) {
     this->x = (this->m_actualWestMap->getWidth() - 1)*tileW;
     this->setActualMap(this->m_actualWestMap->getID());
   }
-  if ((this->y / tileH) < 0) {
+  if (this->m_actualNorthMap != nullptr && (this->y / tileH) < 0) {
     this->y = (this->m_actualNorthMap->getHight() - 1)*tileH;
     this->setActualMap(this->m_actualNorthMap->getID());
   }
 
-  if ((this->y / tileH) > this->m_actualMap->getHight() - 1) {
+  if (this->m_actualSouthMap != nullptr && (this->y / tileH) > this->m_actualMap->getHight() - 1) {
     this->y = 0;
     this->setActualMap(this->m_actualSouthMap->getID());
   }
 }
 
 void World::render (Game* game) {
-  this->m_actualNorthMap->render(game);
-  this->m_actualSouthMap->render(game);
-  this->m_actualEastMap->render(game);
-  this->m_actualWestMap->render(game);
-  this->m_actualMap->render(game);
+  if (this->m_actualNorthMap != nullptr) this->m_actualNorthMap->render(game);
+  if (this->m_actualSouthMap != nullptr) this->m_actualSouthMap->render(game);
+  if (this->m_actualEastMap != nullptr) this->m_actualEastMap->render(game);
+  if (this->m_actualWestMap != nullptr) this->m_actualWestMap->render(game);
+  if (this->m_actualMap != nullptr) this->m_actualMap->render(game);
 }
 
 World::~World() {
