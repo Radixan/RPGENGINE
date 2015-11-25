@@ -18,6 +18,12 @@ class World {
       Map*                                    m_actualSouthMap;
       Map*                                    m_actualEastMap;
       Map*                                    m_actualWestMap;
+      // Diagonal Maps
+      Map*                                    m_actualNorthWestMap;
+      Map*                                    m_actualSouthWestMap;
+      Map*                                    m_actualNorthEastMap;
+      Map*                                    m_actualSouthEastMap;
+
       int16_t x,y;
 
       void        Construct     ();
@@ -31,6 +37,7 @@ class World {
 
       void        setActualMap      (uint16_t map);
       Map*        getMap            ();
+      void        mapUpdate         (Map* map, sf::Time deltaTime, int16_t scrollx, int16_t scrolly, uint16_t startx, uint16_t starty, uint16_t width, uint16_t height);
 
       void        update            (sf::Time deltaTime);
       void        setCamera         (int16_t x, int16_t y);
